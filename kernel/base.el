@@ -187,14 +187,17 @@
 (use-package all-the-icons :ensure t)
 
 (use-package all-the-icons-ivy
-  :init (add-hook 'after-init-hook 'all-the-icons-ivy-setup)
+  :after 'all-the-icons
+  :config
+  (setq all-the-icons-ivy-file-commands
+        '(counsel-find-file counsel-file-jump counsel-recentf))
   )
 
-(setq all-the-icons-ivy-file-commands
-      '(counsel-find-file counsel-file-jump counsel-recentf))
+(add-hook 'after-init-hook #'all-the-icons-ivy-setup)
+
 
 (use-package all-the-icons-ivy-rich
-  :after `(all-the-icons all-the-icons-ivy)
+  :after 'all-the-icons-ivy
   )
 
 (use-package all-the-icons-dired

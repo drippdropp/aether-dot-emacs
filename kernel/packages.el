@@ -30,6 +30,11 @@
         ("org" . 2)
         ("gnu" . 1)))
 
+(if (and (version< emacs-version "26.3") (>= libgnutls-version 30600))
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+
+(setq package-check-signature (when (executable-find "gpg") 'allow-unsigned))
+
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))

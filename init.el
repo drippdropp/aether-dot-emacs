@@ -74,12 +74,13 @@
 (defalias 'yes-or-no-p #'y-or-n-p
   "Use `y-or-n-p' instead of a yes/no prompt.")
 
-(add-hook 'minibuffer-setup-hook #'aether-gc-defer)
-(add-hook 'minibuffer-exit-hook #'aether-gc-restore)
+; (add-hook 'minibuffer-setup-hook #'aether-gc-defer)
+; (add-hook 'minibuffer-exit-hook #'aether-gc-restore)
 
 ;; binding to create an empty buffer
 (global-set-key (kbd "<f7>") 'aether-emacs-new-empty-buffer)
 
+(load-file (expand-file-name "company.el" aether-modules-dir))
 (load-file (expand-file-name "git.el" aether-modules-dir))
 (load-file (expand-file-name "ruby.el" aether-modules-dir))
 (load-file (expand-file-name "clojure.el" aether-modules-dir))
@@ -89,7 +90,7 @@
 (load-file (expand-file-name "haskell.el" aether-modules-dir))
 (load-file (expand-file-name "julia.el" aether-modules-dir))
 (load-file (expand-file-name "c-cpp.el" aether-modules-dir))
-(load-file (expand-file-name "company.el" aether-modules-dir))
+
 
 ;; load user custom configuration overrides
 (when (file-exists-p custom-file) (load custom-file 'noerror))

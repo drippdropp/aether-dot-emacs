@@ -1,5 +1,6 @@
 (use-package company
-  :defer 2
+  :ensure t
+  :defer t
   :diminish
   :custom
   (company-begin-commands '(self-insert-command))
@@ -22,6 +23,7 @@
   (add-to-list 'company-backends #'company-emoji))
 
 (use-package company-box
+  :defer
   :after company
   :diminish
   :hook (company-mode . company-box-mode))
