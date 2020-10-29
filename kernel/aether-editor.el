@@ -67,47 +67,12 @@
 (use-package flycheck-pos-tip
   :ensure t
   :defer t)
-  
-(use-package markdown-mode
-  :ensure t
-  :defer t
-  :ensure-system-package (markdown . "brew install markdown")
-  :hook
-  (markdown-mode . markdown-config-opts)
-  :config
-  (set-face-attribute 'markdown-code-face nil :background "#282C34")
-  (set-face-attribute 'markdown-code-face nil :foreground "#ABB2BF"))
-
-(use-package markdown-toc
-  :ensure t
-  :defer t)
-
-(when (package-installed-p 'markdown-mode)
-  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode)))
-
-
-(defun is-markdown-mode ()
-  (interactive)
-  (if (string-equal major-mode "gfm-mode")
-      (message "Currently in Markdown mode"))
-  )
-(defun set-font-for-gfm-mode ()
-  (set-face-attribute 'markdown nil
-                      :family "Roboto Mono for Powerline"
-                      :height 160
-                      :weight "normal"))
-(defun markdown-config-opts ()
-  (setq show-trailing-whitespace t)
-  (setq markdown-enable-math t)
-  (flyspell-prog-mode)
-  (superword-mode 1))
 
 (use-package hungry-delete
   :ensure t
   :config
   (global-hungry-delete-mode))
-  
+
 (use-package multiple-cursors
   :ensure t)
 
@@ -118,3 +83,4 @@
           conf-mode) . display-line-numbers-mode))
 
 (provide 'aether-editor)
+

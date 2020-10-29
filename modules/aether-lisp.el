@@ -1,4 +1,4 @@
 
 (use-package lisp-mode
-  :defer t
+  :delight "lisp"
   :custom (inferior-lisp-program "sbcl"))

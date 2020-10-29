@@ -59,6 +59,7 @@
 				  cider
 				  counsel
 				  dashboard
+                                  delight
 				  diminish
 				  dotenv-mode
 				  epl
@@ -86,6 +87,8 @@
 				  org-tempo
 				  page-break-lines
 				  popup-kill-ring
+                                  projectile
+                                  counsel-projectile
 				  rainbow-delimiters
 				  rainbow-mode
 				  solarized-theme
@@ -105,19 +108,17 @@
 (setq use-package-compute-statistics t)
 
 (use-package diminish :ensure t)
-
+(use-package delight :ensure t)
 (use-package async
-  :ensure t 
-  :defer t
-  :init (dired-async-mode 1)
-  		(async-bytecomp-package-mode 1)
-  :custom (async-bytecomp-allowed-packages '(all))
-  )
-
-(use-package try
   :ensure t
   :defer t
-  )
+  :init
+  (dired-async-mode 1)
+  (async-bytecomp-package-mode 1)
+  :custom
+  (async-bytecomp-allowed-packages '(all)))
+
+(use-package try :ensure t :defer t)
 
 (use-package auto-package-update
   :ensure t

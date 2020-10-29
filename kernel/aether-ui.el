@@ -165,7 +165,6 @@
 
 (add-hook 'prog-mode-hook 'aether-set-fw-face-in-buffer)
 (add-hook 'conf-mode-hook 'aether-set-fw-face-in-buffer)
-(add-hook 'markdown-mode-hook 'aether-set-serif-face-in-buffer)
 (add-hook 'text-mode-hook #'turn-on-auto-fill)
 
 

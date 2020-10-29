@@ -127,11 +127,11 @@
                          :height 180)))
 
 (defmacro aether-set-md-serif-font-attr (face)
-  "Set FACE to use PT Serif-14"
-  `(when (member "PT Serif for Powerline" (font-family-list))
+  "Set FACE to use Georgia Regular-14"
+  `(when (member "Georgia" (font-family-list))
      (set-face-attribute ,face nil
-                         :font "PT Serif for Powerline"
-                         :height 140)))
+                         :font "Georgia"
+                         :height 240)))
 
 (defun aether-set-fw-face-in-buffer ()
    "Set fixed width font in current buffer"
@@ -142,7 +142,7 @@
 (defun aether-set-serif-face-in-buffer ()
    "Set fixed width font in current buffer"
    (interactive)
-   (setq buffer-face-mode-face '(:family "Roboto for Powerline" :height 140 :width semi-condensed))
+   (setq buffer-face-mode-face '(:family "Georgia" :height 240))
    (buffer-face-mode))
 
 (provide 'aether-helpers)
