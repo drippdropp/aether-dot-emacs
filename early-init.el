@@ -24,8 +24,8 @@
 (scroll-bar-mode -1)
 
 ;; Set text and background color while initializing.
-(set-face-foreground 'default "#3d3d3d")
-(set-face-background 'default "#cccccc")
+(set-face-foreground 'default "#aeaeae")
+(set-face-background 'default "#111111")
 
 (setq-default apropos-do-all t)
 
@@ -40,7 +40,7 @@
 (add-hook 'emacs-startup-hook #'aether-revert-file-name-handler-alist)
 
 (load-file
-	(expand-file-name "kernel/helpers.el" 
+	(expand-file-name "kernel/aether-helpers.el" 
 	(file-name-directory load-file-name)))
 
 (aether-gc-defer)

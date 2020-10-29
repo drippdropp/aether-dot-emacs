@@ -145,5 +145,5 @@
    (setq buffer-face-mode-face '(:family "Roboto for Powerline" :height 140 :width semi-condensed))
    (buffer-face-mode))
 
-(provide 'helpers)
+(provide 'aether-helpers)
 ;;; end of ui.el

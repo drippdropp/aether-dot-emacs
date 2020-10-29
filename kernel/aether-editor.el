@@ -94,7 +94,7 @@
   )
 (defun set-font-for-gfm-mode ()
   (set-face-attribute 'markdown nil
-                      :family "PT Serif for Powerline"
+                      :family "Roboto Mono for Powerline"
                       :height 160
                       :weight "normal"))
 (defun markdown-config-opts ()
@@ -117,4 +117,4 @@
           prog-mode
           conf-mode) . display-line-numbers-mode))
 
-(provide 'editor)
+(provide 'aether-editor)

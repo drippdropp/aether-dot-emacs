@@ -36,7 +36,7 @@
   "Aether modules directory")
 (unless (memq aether-modules-dir load-path) t
 	(add-to-list 'load-path aether-modules-dir))
-;; 
+
 (defvar aether-personal-dir
   (expand-file-name "personal" aether-dir)
   "Aether personal directory")
@@ -58,15 +58,15 @@
 (setq auto-save-default nil)
 (setq auto-save-list-file-prefix nil)
 
-(load-file (expand-file-name "user.el" aether-modules-dir))
+(load-file (expand-file-name "aether-user.el" aether-modules-dir))
 
 ;; bootstrap package loads and initializers as well as helper functions
-(load-file (expand-file-name "packages.el" aether-kernel-dir))
-(load-file (expand-file-name "helpers.el" aether-kernel-dir))
+(load-file (expand-file-name "aether-packages.el" aether-kernel-dir))
+(load-file (expand-file-name "aether-helpers.el" aether-kernel-dir))
 
-(load-file (expand-file-name "base.el" aether-kernel-dir))
-(load-file (expand-file-name "ui.el" aether-kernel-dir))
-(load-file (expand-file-name "editor.el" aether-kernel-dir))
+(load-file (expand-file-name "aether-base.el" aether-kernel-dir))
+(load-file (expand-file-name "aether-ui.el" aether-kernel-dir))
+(load-file (expand-file-name "aether-editor.el" aether-kernel-dir))
 
 (setq confirm-kill-emacs #'yes-or-no-p)
 (setq ring-bell-function 'ignore)
@@ -74,25 +74,29 @@
 (defalias 'yes-or-no-p #'y-or-n-p
   "Use `y-or-n-p' instead of a yes/no prompt.")
 
-; (add-hook 'minibuffer-setup-hook #'aether-gc-defer)
-; (add-hook 'minibuffer-exit-hook #'aether-gc-restore)
-
 ;; binding to create an empty buffer
 (global-set-key (kbd "<f7>") 'aether-emacs-new-empty-buffer)
 
-(load-file (expand-file-name "company.el" aether-modules-dir))
-(load-file (expand-file-name "git.el" aether-modules-dir))
-(load-file (expand-file-name "ruby.el" aether-modules-dir))
-(load-file (expand-file-name "clojure.el" aether-modules-dir))
-(load-file (expand-file-name "lisp.el" aether-modules-dir))
-(load-file (expand-file-name "markdown.el" aether-modules-dir))
-(load-file (expand-file-name "org.el" aether-modules-dir))
-(load-file (expand-file-name "haskell.el" aether-modules-dir))
-(load-file (expand-file-name "julia.el" aether-modules-dir))
-(load-file (expand-file-name "c-cpp.el" aether-modules-dir))
+;; load modules
+(load-file (expand-file-name "aether-company.el" aether-modules-dir))
+(load-file (expand-file-name "aether-dired.el" aether-modules-dir))
+(load-file (expand-file-name "aether-git.el" aether-modules-dir))
+(load-file (expand-file-name "aether-ruby.el" aether-modules-dir))
+(load-file (expand-file-name "aether-clojure.el" aether-modules-dir))
+(load-file (expand-file-name "aether-lisp.el" aether-modules-dir))
+(load-file (expand-file-name "aether-markdown.el" aether-modules-dir))
+(load-file (expand-file-name "aether-latex.el" aether-modules-dir))
+(load-file (expand-file-name "aether-projectile.el" aether-modules-dir))
+(load-file (expand-file-name "aether-org.el" aether-modules-dir))
+(load-file (expand-file-name "aether-haskell.el" aether-modules-dir))
+(load-file (expand-file-name "aether-julia.el" aether-modules-dir))
+(load-file (expand-file-name "aether-c-cpp.el" aether-modules-dir))
 
+(put 'dired-find-alternate-file 'disabled nil)
 
 ;; load user custom configuration overrides
 (when (file-exists-p custom-file) (load custom-file 'noerror))
 
+(provide 'init)
 ;;; end of init.el
+

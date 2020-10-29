@@ -39,13 +39,6 @@
     (emacs-lock-mode 'kill))
   :custom ((ibuffer-saved-filter-groups
             (quote (("default"
-                     ;; ("exwm" (and (not (name . "Firefo[x<>1-9]+$"))
-                     ;;              (or (name . "^\\*system-packages\\*$")
-                     ;;                  (name . "^\\*Wi-Fi Networks\\*$")
-                     ;;                  (name . "^\\*XELB-DEBUG\\*$")
-                     ;;                  (mode . exwm-mode))))
-                     ;; ("firefox" (name . "Firefo[x<>1-9]+$"))
-                     ;; ("ebooks" (mode . nov-mode))
                      ("magit" (name . "^magit.*:"))
                      ("dired" (or (mode . dired-mode)
                                   (mode . wdired-mode)))
@@ -78,10 +71,10 @@
   :defer t
   :bind ("C-s" . swiper))
 
-(use-package avy
-  :ensure t
-  :defer t
-  :bind ("M-s" . avy-goto-char))
+;; (use-package avy
+;;   :ensure t
+;;   :defer t
+;;   :bind ("M-s" . avy-goto-char))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -157,11 +150,13 @@
        (define-key flyspell-mouse-map [mouse-3]
          #'undefined))))
 
+;; linter
 (use-package flycheck
   :ensure t
   :defer t
   :hook (prog-mode . flycheck-mode))
 
+;; put the linting message in a floating window
 (use-package flycheck-posframe
   :if window-system
   :after flycheck
@@ -172,12 +167,12 @@
   :hook ((flycheck-mode . flycheck-posframe-mode)
          (flycheck-posframe-mode . flycheck-posframe-configure-pretty-defaults)))
 
-(use-package avy-flycheck
-  :after flycheck
-  :ensure t
-  :defer t
-  :bind (:map prog-mode-map
-         ("C-c C-'" . avy-flycheck-goto-error)))
+;; (use-package avy-flycheck
+;;   :after flycheck
+;;   :ensure t
+;;   :defer t
+;;   :bind (:map prog-mode-map
+;;          ("C-c C-'" . avy-flycheck-goto-error)))
 
 (use-package yasnippet
   :ensure t
@@ -195,22 +190,21 @@
 
 (add-hook 'after-init-hook #'all-the-icons-ivy-setup)
 
-
-(use-package all-the-icons-ivy-rich
-  :after 'all-the-icons-ivy
-  )
-
 (use-package all-the-icons-dired
   :after all-the-icons
   :hook (dired-mode . all-the-icons-dired-mode)
   )
 
+(use-package gnutls
+  :defer t
+  :ensure-system-package (gnutls-cli . "brew install gnutls")
+  :config
+  (setq tls-program '("gnutls-cli -p %p %h")
+        imap-ssl-program '("gnutls-cli -p %p %s")
+        smtpmail-stream-type 'starttls))
+
 
 ;; settings
-
-(ivy-mode 1)
-(display-time-mode 1)
-
 (setq use-dialog-box nil
       use-file-dialog nil)
 
@@ -233,6 +227,9 @@
 (global-set-key (kbd "C-s") 'swiper-isearch)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-unset-key (kbd "C-x C-d"))
+(global-set-key (kbd "C-x C-d") 'aether-duplicate-line)
+
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
 (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
@@ -247,9 +244,20 @@
 (global-set-key (kbd "C-c J") 'counsel-file-jump)
 (global-set-key (kbd "C-c d") 'counsel-descbinds)
 
+(global-unset-key (kbd "M-o"))
+(global-set-key (kbd "M-o") 'other-window)
+(global-unset-key (kbd "s-f"))
+(global-unset-key (kbd "s-b"))
+(global-set-key (kbd "s-f") 'forward-word)
+(global-set-key (kbd "s-b") 'backward-word)
+(global-unset-key (kbd "M-<right>"))
+(global-unset-key (kbd "M-<left>"))
+(global-set-key (kbd "M-<right>") 'forward-word)
+(global-set-key (kbd "M-<left>") 'backward-word)
+
 ;; additional hooks
 
 (add-hook 'text-mode-hook #'turn-on-auto-fill)
 
-(provide 'base)
+(provide 'aether-base)
 ;;; end of base.el

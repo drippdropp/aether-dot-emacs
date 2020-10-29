@@ -34,7 +34,7 @@
   (when (member "Noto Mono for Powerline" (font-family-list))
     (set-face-attribute 'default nil
 			:font "Noto Mono for Powerline"
-			:height 140))
+			:height 120))
   (when (member "Noto Color Emoji" (font-family-list))
     (set-fontset-font t 'symbol
 		      (font-spec :family "Noto Color Emoji")
@@ -73,14 +73,18 @@
            (display-time-day-and-date t)
            (display-time-24hr-format t)))
 
-(use-package smart-mode-line-powerline-theme
+(use-package smart-mode-line
   :ensure t
   :requires all-the-icons
-  :after powerline
-  :after smart-mode-line
+  :config
   (setq sml/no-confirm-load-theme t)
-  (sml/setup)
-  (sml/apply-theme 'powerline))
+  (sml/setup))
+
+(use-package volatile-highlights
+  :ensure t
+  :diminish volatile-highlights-mode
+  :config
+  (volatile-highlights-mode t))
 
 (use-package display-line-numbers
   :defer t
@@ -88,31 +92,55 @@
           prog-mode
           conf-mode) . display-line-numbers-mode))
 
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (progn
+              (setq prettify-symbols-unprettify-at-point 'right-edge)
+              (prettify-symbols-mode))))
+
 (require 'color)
 
 ;; additional settings and initalizations
 
-(line-number-mode 1)
-(column-number-mode 1)
+(line-number-mode +1)
+(column-number-mode +1)
 (size-indication-mode t)
-(display-time-mode)
+(display-time-mode +1)
+(setq display-time-day-and-date t
+      display-time-24hr-format t)
 (tooltip-mode -1)
-(global-hl-line-mode +1)
-(lighten-hl-background 10)
-(global-visual-line-mode 1)
+(show-paren-mode 1)
 
+(global-hl-line-mode +1)
+(lighten-hl-background 5)
 (set-face-foreground 'highlight nil)
 (set-face-foreground 'hl-line nil)
+
+(global-visual-line-mode t)
+(diminish 'visual-line-mode)
+
+(set-face-attribute 'mode-line nil
+                    :font "Roboto Mono for Powerline"
+                    :height 120)
+
+(add-to-list 'default-frame-alist '(font . "Noto Mono for Powerline-14"))
+
 
 (setq ns-use-srgb-colorspace t)
 (setq mac-allow-anti-aliasing t)
 (setq ns-use-proxy-icon nil)
 
+(setq frame-inhibit-implied-resize t)
 (setq-default left-fringe-width nil
 	      indicate-empty-lines t
 	      indent-tabs-mode nil)
 (setq-default fill-column 80)
 (setq-default cursor-type 'bar)
+(setq frame-title-format nil)
+(setq frame-resize-pixelwise t)
+
+(blink-cursor-mode t)
+(setq-default cursor-type 'box)
 
 (setq visual-line-fringe-indicators 
 	'(left-curly-arrow right-curly-arrow))
@@ -121,13 +149,25 @@
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
+
+
 ;; additional hooks
 
-(add-hook 'dired-mode-hook 'dired-hide-details-mode)
+(dolist (mode '(emacs-lisp-mode-hook
+                inferior-lisp-mode-hook
+                python-mode-hook
+                inferior-ruby-mode-hook
+                haskell-mode-hook
+                julia-mode-hook))
+  (add-hook mode
+            (lambda ()
+              (setq show-trailing-whitespace t))))
+
 (add-hook 'prog-mode-hook 'aether-set-fw-face-in-buffer)
 (add-hook 'conf-mode-hook 'aether-set-fw-face-in-buffer)
 (add-hook 'markdown-mode-hook 'aether-set-serif-face-in-buffer)
 (add-hook 'text-mode-hook #'turn-on-auto-fill)
 
-(provide 'ui)
+
+(provide 'aether-ui)
 ;;; end of ui.el

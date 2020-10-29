@@ -57,11 +57,6 @@
 				  browse-kill-ring
 				  buffer-move
 				  cider
-				  company
-				  company-box
-				  company-math
-				  company-emoji
-				  company-jedi
 				  counsel
 				  dashboard
 				  diminish
@@ -133,5 +128,5 @@
   :hook (after-init . auto-package-update-maybe)
   )
 
-(provide 'packages)
+(provide 'aether-packages)
 ;;; end of packages.el
