@@ -41,10 +41,10 @@
   (expand-file-name "personal" aether-dir)
   "Aether personal directory")
 ;; create `aether-personal-dir' if it doesn't exist.
-(unless (file-exists-p aether-personal-dir) t 
+(unless (file-exists-p aether-personal-dir) t
 	(make-directory aether-personal-dir))
 ;; add `aether-personal-dir' to the load-path if not already present.
-(unless (memq aether-personal-dir load-path) t 
+(unless (memq aether-personal-dir load-path) t
 	(add-to-list 'load-path aether-personal-dir))
 
 ;; define the custom file as `aether-custom.el'
