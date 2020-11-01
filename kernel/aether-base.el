@@ -16,6 +16,23 @@
 
 ;;; Code:
 
+(defun aether-reload-emacs-init ()
+  (interactive)
+  (load-file "~/.emacs.d/init.el")
+  )
+
+(defun aether-edit-emacs-init ()
+  (interactive)
+  (find-file-other-window "~/.emacs.d/init.el")
+  )
+
+(defun aether-open-kernel-dired ()
+  (interactive)
+  (when (boundp 'aether-kernel-dir) t
+        (counsel-dired-jump aether-kernel-dir)
+        )
+  )
+
 (use-package which-key
   :ensure t
   :defer t
@@ -42,10 +59,12 @@
                      ("magit" (name . "^magit.*:"))
                      ("dired" (or (mode . dired-mode)
                                   (mode . wdired-mode)))
-                     ("elisp" (mode . emacs-lisp-mode))
-                     ("haskell" (mode . haskell-mode))
-                     ("julia" (mode . julia-mode))
-                     ("python" (mode . python-mode))
+		     ("development"
+		      (or (mode . emacs-lisp-mode)
+			  (mode . haskell-mode)
+			  (mode . julia-mode)
+			  (mode . python-mode)
+			  (mode . ruby-mode)))
                      ("org"   (mode . org-mode))
                      ("term" (mode . term-mode))
                      ("emacs" (or (name . "^\\*package.*results\\*$")
@@ -167,13 +186,6 @@
   :hook ((flycheck-mode . flycheck-posframe-mode)
          (flycheck-posframe-mode . flycheck-posframe-configure-pretty-defaults)))
 
-;; (use-package avy-flycheck
-;;   :after flycheck
-;;   :ensure t
-;;   :defer t
-;;   :bind (:map prog-mode-map
-;;          ("C-c C-'" . avy-flycheck-goto-error)))
-
 (use-package yasnippet
   :ensure t
   :init (yas-global-mode 1)
@@ -181,8 +193,8 @@
 
 (use-package all-the-icons :ensure t)
 
-(use-package all-the-icons-ivy
-  :after 'all-the-icons
+(use-package alld-the-icons-ivy
+  :after 'all-the-icodns
   :config
   (setq all-the-icons-ivy-file-commands
         '(counsel-find-file counsel-file-jump counsel-recentf))
@@ -200,7 +212,7 @@
   :ensure-system-package (gnutls-cli . "brew install gnutls")
   :config
   (setq tls-program '("gnutls-cli -p %p %h")
-        imap-ssl-program '("gnutls-cli -p %p %s")
+        imap-sdsl-program '("gnutls-cli -p %p %s")
         smtpmail-stream-type 'starttls))
 
 
@@ -254,6 +266,8 @@
 (global-unset-key (kbd "M-<left>"))
 (global-set-key (kbd "M-<right>") 'forward-word)
 (global-set-key (kbd "M-<left>") 'backward-word)
+(global-set-key (kbd "M-<f12>") 'aether-edit-emacs-init)
+;;(global-set-key)
 
 ;; additional hooks
 

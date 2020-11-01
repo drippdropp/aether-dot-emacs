@@ -10,6 +10,10 @@
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
+(use-package company-c-headers
+  :ensure t
+  :defer t)
+
 ;; Company completion backend for lsp-mode
 (use-package company-lsp
   :ensure t

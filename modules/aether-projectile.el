@@ -19,15 +19,38 @@
 ;; - `projectile-find-file-in-known-projects' (search across all projects)
 ;; - `projectile-find-file-dwim' (search within current dir path first)
 ;;
+;;; Code:
+;;
+(defun aether-create-projectile-project-root-file ()
+  "Create projectile file in project-root."
+  (let ((projectile-file (expand-file-name ".projectile" projectile-project-root)))
+    (unless (file-exists-p projectile-file)
+            (write-region "\n" nil projectile-file))))
+;;
+;; (defun aether-add-ignore-path-to-project-file (ignore-path)
+;;   "Get path via interactive input and add to the projectile project file"
+;;   (interactive "sEnter ignore path relative to project root: ")
+
+;;   ;; if projectile root file doesn't exist, then create it
+;;   (aether-create-projectile-project-root-file)
+;;   (when
+;;       (and (file-exists-p (expand-file-name ignore-path projectile-project-root))
+;;            (file-exists-p (expand-
+;;            )
+;;     (write-region (expand-file-name ignore-path projectile-project-root)
+;;                   nil
+;;                   (expand-file-name ".projectile
+;;   )
+
 (use-package projectile
   :ensure t
   :requires (counsel ivy)
   :diminish projectile-mode
-  :delight "prjm"
+  :delight "⚙"
   :bind-keymap ("C-c p" . projectile-command-map)
   :init
 
-  (setq projectile-project-search-path '("~/projects" "~/local" "~/opt"))
+  (setq projectile-project-search-path '("~/projects/" "~/local/" "~/opt/" "~/pkgs/"))
 
   ;; Use ivy as the completion system. The other common CS is helm, but helm is
   ;; a much heavier. There is one key feature of helm though which has to do with
@@ -74,6 +97,13 @@
   :config
   (counsel-projectile-mode))
 
+(defun aether-bind-key-create-projectile-project-root-file ()
+  "Bind key to create projectile project root file."
+  (local-set-key (kbd "C-c p C-n") 'aether-create-projectile-project-root-file))
+
+;;(add-hook 'projectile-mode-hook #'aether-bind-key-create-projectile-project-root-file)
+
 (provide 'aether-projectile)
 ;; end of aether-projectile.el
+
 

@@ -18,7 +18,7 @@
 
 (require 'cl-lib)
 
-(use-package boron-theme
+(use-package abyss-theme
   :if window-system
   :ensure t
   :init
@@ -34,7 +34,7 @@
   (when (member "Noto Mono for Powerline" (font-family-list))
     (set-face-attribute 'default nil
 			:font "Noto Mono for Powerline"
-			:height 120))
+			:height 100))
   (when (member "Noto Color Emoji" (font-family-list))
     (set-fontset-font t 'symbol
 		      (font-spec :family "Noto Color Emoji")
@@ -121,9 +121,9 @@
 
 (set-face-attribute 'mode-line nil
                     :font "Roboto Mono for Powerline"
-                    :height 120)
+                    :height 100)
 
-(add-to-list 'default-frame-alist '(font . "Noto Mono for Powerline-14"))
+(add-to-list 'default-frame-alist '(font . "Noto Mono for Powerline-12"))
 
 
 (setq ns-use-srgb-colorspace t)
