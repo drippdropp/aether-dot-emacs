@@ -82,5 +82,12 @@
           prog-mode
           conf-mode) . display-line-numbers-mode))
 
+(defun copy-but-keep-active-mark ()
+  (interactive)
+  (call-interactively 'copy-region-as-kill)
+  (call-interactively 'exchange-point-and-mark)
+  (call-interactively 'exchange-point-and-mark))
+(global-set-key (kbd "M-w") 'copy-but-keep-active-mark)
+
 (provide 'aether-editor)
 
