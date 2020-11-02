@@ -136,7 +136,7 @@
 (defun aether-set-fw-face-in-buffer ()
    "Set fixed width font in current buffer"
    (interactive)
-   (setq buffer-face-mode-face '(:family "Noto Mono for Powerline" :height 100 :width semi-condensed))
+   (setq buffer-face-mode-face '(:family "Noto Mono for Powerline" :height 140 :width semi-condensed))
    (buffer-face-mode))
 
 (defun aether-set-serif-face-in-buffer ()

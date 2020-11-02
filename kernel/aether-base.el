@@ -186,11 +186,6 @@
   :hook ((flycheck-mode . flycheck-posframe-mode)
          (flycheck-posframe-mode . flycheck-posframe-configure-pretty-defaults)))
 
-(use-package yasnippet
-  :ensure t
-  :init (yas-global-mode 1)
-  )
-
 (use-package all-the-icons :ensure t)
 
 (use-package alld-the-icons-ivy

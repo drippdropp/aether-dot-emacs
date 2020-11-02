@@ -23,7 +23,7 @@
 ;;
 (defun aether-create-projectile-project-root-file ()
   "Create projectile file in project-root."
-  (let ((projectile-file (expand-file-name ".projectile" projectile-project-root)))
+  (let ((projectile-file (expand-file-name "/.projectile" projectile-project-root)))
     (unless (file-exists-p projectile-file)
             (write-region "\n" nil projectile-file))))
 ;;
@@ -84,24 +84,21 @@
   ;; Show a unicode gear, `⚙' on the mode line instead of the text "Projectile".
   (setq projectile-mode-line-prefix "⚙")
 
-  :config (projectile-mode))
+  :config
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode))
 
 ;;; https://github.com/ericdanan/counsel-projectile
 ;;
 ;; `counsel-projectile' handles integrating ivy, counsel, and projectile.
 (use-package counsel-projectile
   :ensure t
-  :delight "cnsprj"
+  :delight "⚙"
   :defer t
   :after projectile
   :config
   (counsel-projectile-mode))
-
-(defun aether-bind-key-create-projectile-project-root-file ()
-  "Bind key to create projectile project root file."
-  (local-set-key (kbd "C-c p C-n") 'aether-create-projectile-project-root-file))
-
-;;(add-hook 'projectile-mode-hook #'aether-bind-key-create-projectile-project-root-file)
 
 (provide 'aether-projectile)
 ;; end of aether-projectile.el

@@ -34,7 +34,7 @@
   (when (member "Noto Mono for Powerline" (font-family-list))
     (set-face-attribute 'default nil
 			:font "Noto Mono for Powerline"
-			:height 100))
+			:height 140))
   (when (member "Noto Color Emoji" (font-family-list))
     (set-fontset-font t 'symbol
 		      (font-spec :family "Noto Color Emoji")
@@ -112,7 +112,7 @@
 (show-paren-mode 1)
 
 (global-hl-line-mode +1)
-(lighten-hl-background 5)
+(lighten-hl-background 10)
 (set-face-foreground 'highlight nil)
 (set-face-foreground 'hl-line nil)
 
@@ -120,10 +120,18 @@
 (diminish 'visual-line-mode)
 
 (set-face-attribute 'mode-line nil
-                    :font "Roboto Mono for Powerline"
-                    :height 100)
+                    :family "Iosevka Fixed"
+                    :foundry "nil"
+                    :width 'normal
+                    :height 150
+                    :weight 'Regular
+                    :slant 'normal
+                    :box nil
+                    :inverse-video nil
+                    :foreground "gray90"
+                    :background "black")
 
-(add-to-list 'default-frame-alist '(font . "Noto Mono for Powerline-12"))
+;; (add-to-list 'default-frame-alist '(font . "Noto Mono for Powerline-14"))
 
 
 (setq ns-use-srgb-colorspace t)

@@ -19,10 +19,6 @@
 (defvar user-full-name "Daniel Marvin")
 (defvar user-email-address "daniel@nullmap.org")
 (defvar user-git-user-name "drippdropp")
-(defmacro generate--user-git ()
-	`(defvar user-git-webaddress 
-		(#'cl-concat "https://www.github.com/" ,user-git-user-name)
-		)
-	)
+(defvar user-git-user-path "https://www.github.com/drippdropp")
 
 (provide 'user)
