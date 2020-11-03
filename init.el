@@ -92,6 +92,7 @@
 (load-file (expand-file-name "aether-julia.el" aether-modules-dir))
 (load-file (expand-file-name "aether-c-cpp.el" aether-modules-dir))
 (load-file (expand-file-name "aether-yasnippet.el" aether-modules-dir))
+(load-file (expand-file-name "aether-avy.el" aether-modules-dir))
 
 ;; load user custom configuration overrides
 (when (file-exists-p custom-file) (load custom-file 'noerror))
