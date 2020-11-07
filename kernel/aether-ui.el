@@ -34,14 +34,14 @@
   (when (member "Noto Mono for Powerline" (font-family-list))
     (set-face-attribute 'default nil
 			:font "Noto Mono for Powerline"
-			:height 140))
+			:height 120))
   (when (member "Noto Color Emoji" (font-family-list))
     (set-fontset-font t 'symbol
 		      (font-spec :family "Noto Color Emoji")
 		      nil 'prepend))
   (setq inhibit-compacting-font-caches t)
   (set-face-background 'fringe (face-background 'default))
-  (fringe-mode 10)
+  (fringe-mode 20)
   (set-face-background 'line-number (face-background 'default))
   (setq window-divider-default-bottom-width 8
 	window-divider-default-places t
@@ -123,7 +123,7 @@
                     :family "Iosevka Fixed"
                     :foundry "nil"
                     :width 'normal
-                    :height 150
+                    :height 140
                     :weight 'Regular
                     :slant 'normal
                     :box nil
@@ -131,12 +131,12 @@
                     :foreground "gray90"
                     :background "black")
 
-;; (add-to-list 'default-frame-alist '(font . "Noto Mono for Powerline-14"))
-
-
 (setq ns-use-srgb-colorspace t)
 (setq mac-allow-anti-aliasing t)
 (setq ns-use-proxy-icon nil)
+
+(when (fboundp 'set-fontset-font)
+  (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend))
 
 (setq frame-inhibit-implied-resize t)
 (setq-default left-fringe-width nil
@@ -147,17 +147,15 @@
 (setq frame-title-format nil)
 (setq frame-resize-pixelwise t)
 
-(blink-cursor-mode t)
+(blink-cursor-mode +1)
 (setq-default cursor-type 'box)
 
-(setq visual-line-fringe-indicators 
+1(setq visual-line-fringe-indicators 
 	'(left-curly-arrow right-curly-arrow))
 
 (setq scroll-margin 0
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
-
-
 
 ;; additional hooks
 

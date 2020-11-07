@@ -31,7 +31,7 @@
 (defun aether-duplicate-line ()
   "Duplicate the current line."
   (interactive)
-  (progn 
+  (progn
     (move-beginning-of-line 1)
     (kill-line)
     (yank)
@@ -144,6 +144,13 @@
    (interactive)
    (setq buffer-face-mode-face '(:family "Georgia" :height 140))
    (buffer-face-mode))
+
+(defun aether-copy-but-keep-active-mark ()
+  (interactive)
+  (call-interactively 'copy-region-as-kill)
+  (call-interactively 'exchange-point-and-mark)
+  (call-interactively 'exchange-point-and-mark))
+(global-set-key (kbd "M-w") 'aether-copy-but-keep-active-mark)
 
 (provide 'aether-helpers)
 ;;; end of ui.el

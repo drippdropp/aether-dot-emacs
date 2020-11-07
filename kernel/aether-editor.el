@@ -63,14 +63,33 @@
   :ensure t
   :defer t)
 
-;; Flycheck errors display in tooltip
+;; Flycheck errors display in tooltip.
 (use-package flycheck-pos-tip
   :ensure t
   :defer t)
 
+;; linter
+(use-package flycheck
+  :ensure t
+  :defer t
+  :hook (prog-mode . flycheck-mode))
+
+;; put the linting message in a floating window
+(use-package flycheck-posframe
+  :if window-system
+  :after flycheck
+  :ensure t
+  :defer t
+  :custom ((posframe-mouse-banish nil)
+           (flycheck-posframe-position 'window-bottom-left-corner))
+  :hook ((flycheck-mode . flycheck-posframe-mode)
+         (flycheck-posframe-mode . flycheck-posframe-configure-pretty-defaults)))
+
+;; Hungry Delete will delete all spaces between the last entry and current point.
 (use-package hungry-delete
   :ensure t
   :config
+  (setq hungry-delete-join-reluctantly t)
   (global-hungry-delete-mode))
 
 (use-package multiple-cursors

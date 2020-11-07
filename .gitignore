@@ -13,3 +13,10 @@
 personal
 elpa
 secrets
+
+.last-package-update-day
+irony
+projectile-bookmarks.eld
+projectile.cache
+recentf
+transient
