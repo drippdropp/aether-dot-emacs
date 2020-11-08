@@ -45,10 +45,19 @@
     (message region-text)))
 
 (defun aether-emacs-new-empty-buffer ()
+  "Create new empty buffer of initial major mode (ELisp)."
   (interactive)
   (let ((new-buf (generate-new-buffer "untitled")))
     (switch-to-buffer new-buf)
     (funcall initial-major-mode)
+    (setq buffer-offer-save t)))
+
+(defun aether-emacs-new-empty-julia-buffer ()
+  "Create new empty Julia buffer."
+  (interactive)
+  (let ((new-buf (generate-new-buffer "untitled")))
+    (switch-to-buffer new-buf)
+    (funcall #'julia-mode)
     (setq buffer-offer-save t)))
 
 ;;; retrieve list of files in directory
@@ -72,19 +81,19 @@
     el-files-list))
 
 (defun aether-create-dir-unless-exists (target-dir)
-  "Create `target-dir' if it does not currently exist."
+  "Create TARGET-DIR if it does not currently exist."
   (unless (file-exists-p target-dir)
     (make-directory target-dir))
   )
 
 (defun aether-create-file-unless-exists (target-file)
-  "Create `target-file' if it does not currently exist."
+  "Create TARGET-FILE if it does not currently exist."
   (unless (file-exists-p target-file)
     (write-region "" nil target-file))
   )
 
 (defun aether-include-load-path (target-dir)
-  "Add directory to load path if not previously addede."
+  "Add TARGET-DIR to load path if not previously addede."
   (unless (memq target-dir load-path) t
 	  (add-to-list 'load-path target-dir))
   )
@@ -98,59 +107,65 @@
 ;;; font/ui related macros and functions
 
 (defun lighten-hl-background (amt)
+  "Lighten the highlight line face background by AMT."
   (set-face-background 'hl-line (color-lighten-name (face-background 'default) amt)))
 
 (defun darken-hl-foreground (amt)
+  "Lighten the highlight line face background by AMT."
   (set-face-foreground 'hl-line (color-darken-name (face-foreground 'default) amt)))
 
 (defmacro aether-emacs-with-face (str &rest properties)
+  "Macro to set STR with optional PROPERTIES."
   `(propertize ,str 'face (list ,@properties)))
 
 (defun aether-emacs-disable-number-and-visual-line ()
+  "Function to set config options which disable the number and visual line."
   (visual-line-mode 0)
   (if (version< emacs-version "26.1")
       (linum-mode 0)
     (display-line-numbers-mode 0)))
 
 (defmacro aether-set-md-fw-font-attr (face)
-  "Set FACE to use Noto Mono for Powerline-14"
+  "Set FACE to use Noto Mono for Powerline-14."
   `(when (member "Noto Mono for Powerline" (font-family-list))
      (set-face-attribute ,face nil
                          :font "Noto Mono for Powerline"
                          :height 140)))
 
 (defmacro aether-set-lg-fw-font-attr (face)
-  "Set FACE to use Noto Mono for Powerline-18"
+  "Set FACE to use Noto Mono for Powerline-18."
   `(when (member "Noto Mono for Powerline" (font-family-list))
      (set-face-attribute ,face nil
                          :font "Noto Mono for Powerline"
                          :height 180)))
 
 (defmacro aether-set-md-serif-font-attr (face)
-  "Set FACE to use Georgia Regular-14"
+  "Set FACE to use Georgia Regular-24."
   `(when (member "Georgia" (font-family-list))
      (set-face-attribute ,face nil
                          :font "Georgia"
                          :height 240)))
 
 (defun aether-set-fw-face-in-buffer ()
-   "Set fixed width font in current buffer"
+   "Set fixed width font in current buffer."
    (interactive)
    (setq buffer-face-mode-face '(:family "Noto Mono for Powerline" :height 140 :width semi-condensed))
    (buffer-face-mode))
 
 (defun aether-set-serif-face-in-buffer ()
-   "Set fixed width font in current buffer"
+   "Set fixed width font in current buffer."
    (interactive)
    (setq buffer-face-mode-face '(:family "Georgia" :height 140))
    (buffer-face-mode))
 
 (defun aether-copy-but-keep-active-mark ()
+  "After copying region, don't disable it."
   (interactive)
   (call-interactively 'copy-region-as-kill)
   (call-interactively 'exchange-point-and-mark)
   (call-interactively 'exchange-point-and-mark))
+
 (global-set-key (kbd "M-w") 'aether-copy-but-keep-active-mark)
 
 (provide 'aether-helpers)
-;;; end of ui.el
+;;; aether-helpers.el ends here.

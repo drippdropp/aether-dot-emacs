@@ -23,6 +23,7 @@
   :ensure t
   :init
   (load-theme 'boron t)
+  ;;(load-theme 'boron t)
   (prefer-coding-system 'utf-8)
   (setq locale-coding-system 'utf-8)
   (set-language-environment "UTF-8")
@@ -30,15 +31,14 @@
   (set-terminal-coding-system 'utf-8)
   (set-keyboard-coding-system 'utf-8)
   (set-selection-coding-system 'utf-8)
-
-  (when (member "Noto Mono for Powerline" (font-family-list))
+  (when (member "Cousine for Powerline" (font-family-list))
     (set-face-attribute 'default nil
-			:font "Noto Mono for Powerline"
-			:height 120))
+			:font "Cousine for Powerline"
+			:height 140))
   (when (member "Noto Color Emoji" (font-family-list))
     (set-fontset-font t 'symbol
-		      (font-spec :family "Noto Color Emoji")
-		      nil 'prepend))
+        	      (font-spec :family "Noto Color Emoji")
+        	      nil 'prepend))
   (setq inhibit-compacting-font-caches t)
   (set-face-background 'fringe (face-background 'default))
   (fringe-mode 20)
@@ -64,17 +64,18 @@
   :ensure t
   :defer t
   :init
-  (mood-line-mode 1)
-  (line-number-mode t)
-  (column-number-mode t)
-  (display-time-mode t)
-  (display-battery-mode 1)
+  (mood-line-mode +1)
+  (line-number-mode +1)
+  (column-number-mode +1)
+  (display-time-mode +1)
+  (display-battery-mode +1)
   :custom ((display-time-format "%a %m/%d %H:%M")
            (display-time-day-and-date t)
            (display-time-24hr-format t)))
 
 (use-package smart-mode-line
   :ensure t
+  :defer t
   :requires all-the-icons
   :config
   (setq sml/no-confirm-load-theme t)
@@ -102,12 +103,7 @@
 
 ;; additional settings and initalizations
 
-(line-number-mode +1)
-(column-number-mode +1)
 (size-indication-mode t)
-(display-time-mode +1)
-(setq display-time-day-and-date t
-      display-time-24hr-format t)
 (tooltip-mode -1)
 (show-paren-mode 1)
 
@@ -135,9 +131,6 @@
 (setq mac-allow-anti-aliasing t)
 (setq ns-use-proxy-icon nil)
 
-(when (fboundp 'set-fontset-font)
-  (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend))
-
 (setq frame-inhibit-implied-resize t)
 (setq-default left-fringe-width nil
 	      indicate-empty-lines t
@@ -150,7 +143,7 @@
 (blink-cursor-mode +1)
 (setq-default cursor-type 'box)
 
-1(setq visual-line-fringe-indicators 
+1(setq visual-line-fringe-indicators
 	'(left-curly-arrow right-curly-arrow))
 
 (setq scroll-margin 0
@@ -169,7 +162,7 @@
             (lambda ()
               (setq show-trailing-whitespace t))))
 
-(add-hook 'prog-mode-hook 'aether-set-fw-face-in-buffer)
+;;(add-hook 'prog-mode-hook 'aether-set-fw-face-in-buffer)
 (add-hook 'conf-mode-hook 'aether-set-fw-face-in-buffer)
 (add-hook 'text-mode-hook #'turn-on-auto-fill)
 
