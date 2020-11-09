@@ -131,46 +131,6 @@
       inhibit-splash-screen t
       inhibit-startup-message t)
 
-;; key bindings
-
-(global-set-key (kbd "s-<left>") 'move-to-left-margin)
-(global-set-key (kbd "s-<right>") 'move-end-of-line)
-(global-set-key (kbd "M-<up>") #'aether-get-selected-text)
-
-
-(global-set-key (kbd "C-s") 'swiper-isearch)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-unset-key (kbd "C-x C-d"))
-(global-set-key (kbd "C-x C-d") 'aether-duplicate-line)
-
-(global-set-key (kbd "M-y") 'counsel-yank-pop)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "<f1> l") 'counsel-find-library)
-(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-(global-set-key (kbd "<f2> j") 'counsel-set-variable)
-(global-set-key (kbd "C-x b") 'ivy-switch-buffer)
-(global-set-key (kbd "C-c v") 'ivy-push-view)
-(global-set-key (kbd "C-c V") 'ivy-pop-view)
-(global-set-key (kbd "C-x l") 'counsel-locate)
-(global-set-key (kbd "C-c J") 'counsel-file-jump)
-(global-set-key (kbd "C-c d") 'counsel-descbinds)
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
-
-(global-unset-key (kbd "M-o"))
-(global-set-key (kbd "M-o") 'other-window)
-(global-unset-key (kbd "s-f"))
-(global-unset-key (kbd "s-b"))
-(global-set-key (kbd "s-f") 'forward-word)
-(global-set-key (kbd "s-b") 'backward-word)
-(global-unset-key (kbd "M-<right>"))
-(global-unset-key (kbd "M-<left>"))
-(global-set-key (kbd "M-<right>") 'forward-word)
-(global-set-key (kbd "M-<left>") 'backward-word)
-(global-set-key (kbd "M-<f12>") 'aether-edit-emacs-init)
-
 ;; additional hooks
 
 (add-hook 'text-mode-hook #'turn-on-auto-fill)

@@ -1,4 +1,4 @@
-;;; init.el --- Initialization
+;;; init.el --- -*- lexical-binding: t -*-
 ;;
 ;; Author     : Daniel Marvin <daniel@nullmap.org>
 ;; Created    : Wed Oct 28, 2020
@@ -65,34 +65,37 @@
 (load-file (expand-file-name "aether-helpers.el" aether-kernel-dir))
 
 (load-file (expand-file-name "aether-base.el" aether-kernel-dir))
-(load-file (expand-file-name "aether-ui.el" aether-kernel-dir))
 (load-file (expand-file-name "aether-editor.el" aether-kernel-dir))
-
-(setq confirm-kill-emacs #'yes-or-no-p)
-(setq ring-bell-function 'ignore)
+(load-file (expand-file-name "aether-ui.el" aether-kernel-dir))
+(load-file (expand-file-name "aether-dashboard.el" aether-kernel-dir))
 
 (defalias 'yes-or-no-p #'y-or-n-p
   "Use `y-or-n-p' instead of a yes/no prompt.")
 
-;; binding to create an empty buffer
-(global-set-key (kbd "<f7>") 'aether-emacs-new-empty-buffer)
+(setq confirm-kill-emacs #'yes-or-no-p)
+(setq ring-bell-function 'ignore)
 
 ;; load modules
+(load-file (expand-file-name "aether-avy.el" aether-modules-dir))
+(load-file (expand-file-name "aether-c-cpp.el" aether-modules-dir))
+(load-file (expand-file-name "aether-clojure.el" aether-modules-dir))
 (load-file (expand-file-name "aether-company.el" aether-modules-dir))
 (load-file (expand-file-name "aether-dired.el" aether-modules-dir))
+(load-file (expand-file-name "aether-doomline.el" aether-modules-dir))
 (load-file (expand-file-name "aether-git.el" aether-modules-dir))
-(load-file (expand-file-name "aether-ruby.el" aether-modules-dir))
-(load-file (expand-file-name "aether-clojure.el" aether-modules-dir))
+(load-file (expand-file-name "aether-haskell.el" aether-modules-dir))
+(load-file (expand-file-name "aether-ivy.el" aether-modules-dir))
+(load-file (expand-file-name "aether-julia.el" aether-modules-dir))
+(load-file (expand-file-name "aether-latex.el" aether-modules-dir))
 (load-file (expand-file-name "aether-lisp.el" aether-modules-dir))
 (load-file (expand-file-name "aether-markdown.el" aether-modules-dir))
-(load-file (expand-file-name "aether-latex.el" aether-modules-dir))
-(load-file (expand-file-name "aether-projectile.el" aether-modules-dir))
 (load-file (expand-file-name "aether-org.el" aether-modules-dir))
-(load-file (expand-file-name "aether-haskell.el" aether-modules-dir))
-(load-file (expand-file-name "aether-julia.el" aether-modules-dir))
-(load-file (expand-file-name "aether-c-cpp.el" aether-modules-dir))
+(load-file (expand-file-name "aether-osx.el" aether-modules-dir))
+(load-file (expand-file-name "aether-projectile.el" aether-modules-dir))
+(load-file (expand-file-name "aether-ruby.el" aether-modules-dir))
 (load-file (expand-file-name "aether-yasnippet.el" aether-modules-dir))
-(load-file (expand-file-name "aether-avy.el" aether-modules-dir))
+
+(load-file (expand-file-name "aether-bindings.el" aether-kernel-dir))
 
 ;; load user custom configuration overrides
 (when (file-exists-p custom-file) (load custom-file 'noerror))
@@ -101,3 +104,4 @@
 ;;; end of init.el
 
 (put 'dired-find-alternate-file 'disabled nil)
+

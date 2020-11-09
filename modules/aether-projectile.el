@@ -50,7 +50,7 @@
   :bind-keymap ("C-c p" . projectile-command-map)
   :init
 
-  (setq projectile-project-search-path '("~/projects/" "~/local/" "~/opt/" "~/pkgs/"))
+  (setq projectile-project-search-path '("~/local/" "~/.emacs.d/" "~/pdevel/" "~/local-devel/env-development/"))
 
   ;; Use ivy as the completion system. The other common CS is helm, but helm is
   ;; a much heavier. There is one key feature of helm though which has to do with

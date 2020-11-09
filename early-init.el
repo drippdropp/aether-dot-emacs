@@ -1,4 +1,4 @@
-;;; early-init.el --- Early Initialization
+;;; early-init.el --- -*- lexical-binding: t -*-
 ;;
 ;; Author     : Daniel Marvin <daniel@nullmap.org>
 ;; Created    : Wed Oct 28, 2020

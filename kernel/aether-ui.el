@@ -60,26 +60,26 @@
   (add-to-list 'default-frame-alist '(width . 140))
   )
 
-(use-package mood-line
-  :ensure t
-  :defer t
-  :init
-  (mood-line-mode +1)
-  (line-number-mode +1)
-  (column-number-mode +1)
-  (display-time-mode +1)
-  (display-battery-mode +1)
-  :custom ((display-time-format "%a %m/%d %H:%M")
-           (display-time-day-and-date t)
-           (display-time-24hr-format t)))
+;; (use-package mood-line
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (mood-line-mode +1)
+;;   (line-number-mode +1)
+;;   (column-number-mode +1)
+;;   (display-time-mode +1)
+;;   (display-battery-mode +1)
+;;   :custom ((display-time-format "%a %m/%d %H:%M")
+;;            (display-time-day-and-date t)
+;;            (display-time-24hr-format t)))
 
-(use-package smart-mode-line
-  :ensure t
-  :defer t
-  :requires all-the-icons
-  :config
-  (setq sml/no-confirm-load-theme t)
-  (sml/setup))
+;; (use-package smart-mode-line
+;;   :ensure t
+;;   :defer t
+;;   :requires all-the-icons
+;;   :config
+;;   (setq sml/no-confirm-load-theme t)
+;;   (sml/setup))
 
 (use-package volatile-highlights
   :ensure t
