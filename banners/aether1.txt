@@ -1,45 +1,47 @@
-        d8888          888    888                       
-       d88888          888    888                       
-      d88P888          888    888                       
-     d88P 888  .d88b.  888888 88888b.   .d88b.  888d888 
-    d88P  888 d8P  Y8b 888    888 "88b d8P  Y8b 888P"   
-   d88P   888 88888888 888    888  888 88888888 888     
-  d8888888888 Y8b.     Y88b.  888  888 Y8b.     888     
- d88P     888  "Y8888   "Y888 888  888  "Y8888  888
+                d8888          888    888                       
+               d88888          888    888                       
+              d88P888          888    888                       
+             d88P 888  .d88b.  888888 88888b.   .d88b.  888d888 
+            d88P  888 d8P  Y8b 888    888 "88b d8P  Y8b 888P"   
+           d88P   888 88888888 888    888  888 88888888 888     
+          d8888888888 Y8b.     Y88b.  888  888 Y8b.     888     
+         d88P     888  "Y8888   "Y888 888  888  "Y8888  888
 
-                    HELPFUL COMMANDS
---------------------------------------------------------
-Trapdoor/Cancel:                                     C-g
-To determine what a key is bound to:         C-h k <KEY> 
-Quit Aether:                                     C-x C-c
-
-Find File:                                       C-x C-f
-Save File:                                       C-x C-s
-Write File:                                      C-x C-w
-File Jump:                                         C-c J
-Locate:                                            C-x l
-Search:                                              C-s
-Avy Search:                                          M-s
-
-Change Window:                                     C-x o
-Split Window Horizontally                          C-x 2
-Split Window Vertically                            C-x 3
-Close Other Windows:                               C-x 0
-Close the Current Window:                          C-x 1
-Switch Buffer:                                     C-x b
-Kill Current Buffer:                               C-x k
-
-Switch View:                                     C-x C-b
-Push View:                                         C-c v
-Pop View:                                          C-c V
-
-Evaluate Lisp Expression:                            M-:
-
-LISP MODE//
-Execute Lisp Expression:                         C-x C-e
-Execute Lisp Expr and Display Output:        C-u C-x C-e
-
-JULIA MODE//
-Launch REPL:                                     C-c C-z
-Execute current line:                            C-c C-l
-Execute highlighted region:                      C-c C-r
+=-----------------------------------------------------------------------=
+Trapdoor/Cancel:               C-g   || Evaluate Lisp Expression:     M-:
+To determine what a                  || 
+    key is bound to:   C-h k <KEY>   || Open New Buffer:             <f7>
+Quit Aether:               C-x C-c   || Edit Init File:           M-<f12>
+                                     || Reload Init File:         M-<f11>
+Find File:                 C-x C-f   ||
+Save File:                 C-x C-s   || Describe Function:         <f1> f
+Write File:                C-x C-w   || Describe Variable:         <f1> v
+File Jump:                   C-c J   || Find Library:              <f2> l
+Locate:                      C-x l   || Lookup Symbol:             <f2> i
+Search:                        C-s   || Unicode Char:              <f2> u
+Avy Search:                    M-s   || Set Variable:              <f2> j
+                                     || 
+Change Window:               C-x o   || LISP MODE
+Split Window Horizontally    C-x 2   || =-------=
+Split Window Vertically      C-x 3   || Execute Expression:       C-x C-e
+Close Other Windows:         C-x 0   || Execute and Display:  C-u C-x C-e
+Close the Current Window:    C-x 1   || 
+Switch Buffer:               C-x b   || JULIA MODE
+Kill Current Buffer:         C-x k   || =--------=
+                                     || Launch REPL               C-c C-z
+Switch View:               C-x C-b   || Execute Current Line:     C-c C-l
+Push View:                   C-c v   || Execute Marked Region:    C-c C-r
+Pop View:                    C-c V   || 
+=------------------------------------||---------------------------------=
+NEOTREE MODE                  <f9>   || ORG MODE
+=----------=                         || =------=
+Next Line, Previous Line:     n, p   || Cycle through TODO Status:C-c C-t
+Refresh:                         g   || Create new Table:           C-c |
+Toggle Display of Hidden Files:  R   || Agenda Mode:                C-c a
+Recursively Open Directory:      O   ||
+Create file or directory:  C-c C-n   ||
+Delete file or directory:  C-c C-d   ||
+Rename file or directory:  C-c c-r   ||
+Change the root directory: C-c C-c   ||
+Copy a file or directory:  C-c C-p   ||
+=------------------------------------||---------------------------------=

@@ -62,7 +62,8 @@
                                   delight
 				  diminish
 				  dotenv-mode
-				  epl
+
+                                  epl
 				  epresent
 				  exec-path-from-shell
 				  flycheck
@@ -78,13 +79,24 @@
 				  lisp-mode
 				  magit
 				  minibuffer-line
+
+                                  doom-modeline
 				  mood-line
-				  neotree
-				  nlinum
-				  nov
+
+                                  ;; file system tree display
+                                  neotree
+
+                                  ;; line numbering
+                                  nlinum
+
+                                  ;; for reading EPUB files
+                                  nov
+
+                                  ;; org mode
 				  org
 				  org-bullets
 				  org-tempo
+
 				  page-break-lines
 				  popup-kill-ring
                                   projectile

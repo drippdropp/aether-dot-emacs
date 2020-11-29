@@ -15,7 +15,7 @@
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-unset-key (kbd "C-x C-d"))
-(global-set-key (kbd "C-x C-d") 'aether-duplicate-line)
+(global-set-key (kbd "C-x C-d") 'aether-duplicate-current-line-or-region)
 
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
@@ -35,6 +35,8 @@
 (global-set-key (kbd "C-c V") 'ivy-pop-view)
 (global-set-key (kbd "C-c J") 'counsel-file-jump)
 
+
+
 ;; Change to other window with OPT+o
 (global-unset-key (kbd "M-o"))
 (global-set-key (kbd "M-o") 'other-window)
@@ -51,6 +53,15 @@
 (global-unset-key (kbd "M-<left>"))
 (global-set-key (kbd "M-<left>") 'backward-word)
 
+(global-unset-key (kbd "C-M-<left>"))
+(global-set-key (kbd "C-M-<left>") 'aether-move-region-up)
+(global-unset-key (kbd "C-M-<right>"))
+(global-set-key (kbd "C-M-<right>") 'aether-move-region-down)
+(global-unset-key (kbd "C-M-<up>"))
+(global-set-key (kbd "C-M-<up>") 'aether-move-region-up)
+(global-unset-key (kbd "C-M-<down>"))
+(global-set-key (kbd "C-M-<down>") 'aether-move-region-down)
+
 ;; Associate CMD+LEFT to move to beginning of line.
 (global-set-key (kbd "s-<left>") 'move-to-left-margin)
 ;; Associate CMD+RIGHT to move to end of line.
@@ -62,7 +73,9 @@
 (global-set-key (kbd "M-<f11>") 'aether-reload-emacs-init)
 
 ;; binding to create an empty buffer
-(global-set-key (kbd "<f7>") 'aether-emacs-new-empty-buffer)
+(global-set-key (kbd "<f7>") #'aether-emacs-new-empty-buffer)
+(global-set-key (kbd "<f9>") #'neotree-toggle)
+(global-set-key (kbd "<f10>") #'neotree-project-dir)
 
 (provide 'aether-bindings)
-;; aether-bindings.el ends here.
+;; aether-bindings.el ends here

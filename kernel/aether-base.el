@@ -33,6 +33,49 @@
         )
   )
 
+(defun aether-duplicate-current-line-or-region (arg)
+  "Duplicates the current line or region ARG times.
+   If there is no region given, the current line will be duplicated."
+  (interactive "p")
+  (let (beg end (origin (point)))
+    (if (and mark-active (> (point) (mark)))
+        (exchange-point-and-mark))
+    (setq beg (line-beginning-position))
+    (if mark-active
+        (exchange-point-and-mark))
+    (setq end (line-end-position))
+    (let ((region (buffer-substring-no-properties beg end)))
+      (dotimes (i arg)
+        (goto-char end)
+        (newline)
+        (insert region)
+        (setq end (point)))
+      (goto-char (+ origin (* (length region) arg) arg))))
+  )
+
+(defun aether-move-region (start end n)
+  "Move the current region up or down by N lines."
+  (interactive "r\np")
+  (let ((line-text (delete-and-extract-region start end)))
+    (forward-line n)
+    (let ((start (point)))
+      (insert line-text)
+      (setq deactivate-mark nil)
+      (set-mark start)))
+  )
+
+(defun aether-move-region-up (start end n)
+  "Move the current line up by N lines."
+  (interactive "r\np")
+  (aether-move-region start end (if (null n) -1 (- n)))
+  )
+
+(defun aether-move-region-down (start end n)
+  "Move the current line down by N lines."
+  (interactive "r\np")
+  (aether-move-region start end (if (null n) 1 n))
+  )
+
 ;; When a key sequence is initiated, a menu will display addition
 ;;   possible key sequences.
 (use-package which-key
@@ -61,7 +104,7 @@
   (setq exec-path-from-shell-check-startup-files nil)
   (when (string= system-type "darwin")
     (exec-path-from-shell-initialize))
-  (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
+  (let ((path (shell-command-to-string ". ~/.zshrc; . ~/.zshenv; echo -n $PATH")))
     (setenv "PATH" path)
     (setq exec-path
           (append

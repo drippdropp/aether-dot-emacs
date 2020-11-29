@@ -48,7 +48,8 @@
 
   ;; Whether display icons in the mode-line.
   ;; While using the server mode in GUI, should set the value explicitly.
-  (setq doom-modeline-icon (display-graphic-p))
+  ;;(setq doom-modeline-icon (disp lay-graphic-p))
+  (setq doom-modeline-icon t)
 
   ;; Whether display the icon for `major-mode'. It respects `doom-modeline-icon'.
   (setq doom-modeline-major-mode-icon t)
@@ -146,6 +147,7 @@
   (setq doom-modeline-env-enable-go t)
   (setq doom-modeline-env-enable-elixir t)
   (setq doom-modeline-env-enable-rust t)
+  (setq doom-modeline-env-enable-julia t)
 
   ;; Change the executables to use for the language version string
   (setq doom-modeline-env-python-executable "python") ; or `python-shell-interpreter'
@@ -154,6 +156,7 @@
   (setq doom-modeline-env-go-executable "go")
   (setq doom-modeline-env-elixir-executable "iex")
   (setq doom-modeline-env-rust-executable "rustc")
+  (setq doom-modeline-env-julia-executable "julia")
 
   ;; What to dispaly as the version while a new one is being loaded
   (setq doom-modeline-env-load-string "...")

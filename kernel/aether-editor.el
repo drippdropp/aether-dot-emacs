@@ -101,5 +101,8 @@
           prog-mode
           conf-mode) . display-line-numbers-mode))
 
+;; (use-package olivetti
+;;   :defer t)
+
 (provide 'aether-editor)
 

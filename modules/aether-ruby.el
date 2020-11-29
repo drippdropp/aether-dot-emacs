@@ -1,3 +1,5 @@
+(use-package ruby-mode)
+
 (use-package ruby-electric
   :ensure t
   )

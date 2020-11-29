@@ -18,12 +18,13 @@
 
 (require 'cl-lib)
 
+;;(use-package sanityinc-solarized-light-theme
 (use-package abyss-theme
   :if window-system
   :ensure t
   :init
+;;  (load-theme 'sanityinc-solarized-light t)
   (load-theme 'boron t)
-  ;;(load-theme 'boron t)
   (prefer-coding-system 'utf-8)
   (setq locale-coding-system 'utf-8)
   (set-language-environment "UTF-8")
@@ -31,10 +32,10 @@
   (set-terminal-coding-system 'utf-8)
   (set-keyboard-coding-system 'utf-8)
   (set-selection-coding-system 'utf-8)
-  (when (member "Cousine for Powerline" (font-family-list))
+  (when (member "Fira Mono for Powerline" (font-family-list))
     (set-face-attribute 'default nil
-			:font "Cousine for Powerline"
-			:height 140))
+			:family "Fira Mono for Powerline"
+			:height 120))
   (when (member "Noto Color Emoji" (font-family-list))
     (set-fontset-font t 'symbol
         	      (font-spec :family "Noto Color Emoji")
@@ -58,34 +59,25 @@
   (add-to-list 'default-frame-alist '(alpha . 90))
   (add-to-list 'default-frame-alist '(height . 50))
   (add-to-list 'default-frame-alist '(width . 140))
+  :config
+  (set-face-attribute 'mode-line nil
+                    :family "Iosevka Fixed"
+                    :foundry "nil"
+                    :width 'normal
+                    :height 130
+                    :weight 'Regular
+                    :slant 'normal
+                    :box nil
+                    :inverse-video nil
+                    :foreground "gray90"
+                    :background "black")
   )
-
-;; (use-package mood-line
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (mood-line-mode +1)
-;;   (line-number-mode +1)
-;;   (column-number-mode +1)
-;;   (display-time-mode +1)
-;;   (display-battery-mode +1)
-;;   :custom ((display-time-format "%a %m/%d %H:%M")
-;;            (display-time-day-and-date t)
-;;            (display-time-24hr-format t)))
-
-;; (use-package smart-mode-line
-;;   :ensure t
-;;   :defer t
-;;   :requires all-the-icons
-;;   :config
-;;   (setq sml/no-confirm-load-theme t)
-;;   (sml/setup))
 
 (use-package volatile-highlights
   :ensure t
   :diminish volatile-highlights-mode
   :config
-  (volatile-highlights-mode t))
+  (volatile-highlights-mode +1))
 
 (use-package display-line-numbers
   :defer t
@@ -115,18 +107,6 @@
 (global-visual-line-mode t)
 (diminish 'visual-line-mode)
 
-(set-face-attribute 'mode-line nil
-                    :family "Iosevka Fixed"
-                    :foundry "nil"
-                    :width 'normal
-                    :height 140
-                    :weight 'Regular
-                    :slant 'normal
-                    :box nil
-                    :inverse-video nil
-                    :foreground "gray90"
-                    :background "black")
-
 (setq ns-use-srgb-colorspace t)
 (setq mac-allow-anti-aliasing t)
 (setq ns-use-proxy-icon nil)
@@ -143,7 +123,7 @@
 (blink-cursor-mode +1)
 (setq-default cursor-type 'box)
 
-1(setq visual-line-fringe-indicators
+(setq visual-line-fringe-indicators
 	'(left-curly-arrow right-curly-arrow))
 
 (setq scroll-margin 0

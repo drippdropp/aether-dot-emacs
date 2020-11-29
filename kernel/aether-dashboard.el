@@ -2,7 +2,7 @@
 (use-package dashboard
   :ensure t
   :preface
-  (defun my/dashboard-banner ()
+  (defun aether-dashboard-banner ()
     "Set a dashboard banner including information on package initialization
   time and garbage collections."""
     (setq dashboard-banner-logo-title
@@ -25,13 +25,13 @@
                           (projects . 5)))
   (setq dashboard-navigator-buttons
         `(((,(when (display-graphic-p)
-               (all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0))
+               (all-the-icons-octicon "mark-github" :height 1.5 :v-adjust 0.8))
             "Homepage"
             "Visit project Homepage"
             (lambda (&rest _) (browse-url "https://github.com/drippdropp/aether-dot-emacs"))))))
   (dashboard-setup-startup-hook)
   :hook ((after-init     . dashboard-refresh-buffer)
-         (dashboard-mode . my/dashboard-banner)))
+         (dashboard-mode . aether-dashboard-banner)))
 
 (provide 'aether-dashboard)
 

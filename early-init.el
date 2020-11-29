@@ -40,7 +40,7 @@
 (add-hook 'emacs-startup-hook #'aether-revert-file-name-handler-alist)
 
 (load-file
-	(expand-file-name "kernel/aether-helpers.el" 
+	(expand-file-name "kernel/aether-helpers.el"
 	(file-name-directory load-file-name)))
 
 (aether-gc-defer)

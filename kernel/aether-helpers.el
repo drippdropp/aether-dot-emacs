@@ -39,6 +39,15 @@
     (next-line 1)
     (yank)))
 
+(defun aether-frame-create (&optional title)
+  "Create a new frame returning its internal id,
+   optionally setting TITLE as title"
+  (interactive "sNew frame name: ")
+  (progn
+    (setq aether-frame-id (make-frame-command))
+    (set-frame-name title))
+  aether-frame-id)
+
 (defun aether-get-selected-text (start end)
   (interactive "r")
   (let ((region-text (buffer-substring start end)))

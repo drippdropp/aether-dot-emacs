@@ -1,6 +1,5 @@
 ;;; aether-project.el --  projectile initialization and customization
 ;;
-;;
 ;; https://docs.projectile.mx/projectile/configuration.html
 ;;
 ;; projectile (using `projectile-mode') is used to manage projects.
@@ -30,7 +29,7 @@
 ;; (defun aether-add-ignore-path-to-project-file (ignore-path)
 ;;   "Get path via interactive input and add to the projectile project file"
 ;;   (interactive "sEnter ignore path relative to project root: ")
-
+;;
 ;;   ;; if projectile root file doesn't exist, then create it
 ;;   (aether-create-projectile-project-root-file)
 ;;   (when
@@ -49,8 +48,7 @@
   :delight "⚙"
   :bind-keymap ("C-c p" . projectile-command-map)
   :init
-
-  (setq projectile-project-search-path '("~/local/" "~/.emacs.d/" "~/pdevel/" "~/local-devel/env-development/"))
+  (setq projectile-project-search-path '("~/local/" "~/.emacs.d/" "~/env-local/" "~/local-devel/env-development/"))
 
   ;; Use ivy as the completion system. The other common CS is helm, but helm is
   ;; a much heavier. There is one key feature of helm though which has to do with
@@ -87,7 +85,12 @@
   :config
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (projectile-mode))
+  (projectile-mode)
+  (projectile-register-project-type 'julia '("Project.toml")
+                                    :project-file "Project.toml"
+                                    :compile ""
+                                    )
+  )
 
 ;;; https://github.com/ericdanan/counsel-projectile
 ;;
@@ -102,5 +105,4 @@
 
 (provide 'aether-projectile)
 ;; end of aether-projectile.el
-
 
