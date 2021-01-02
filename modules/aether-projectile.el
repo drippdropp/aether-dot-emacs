@@ -64,27 +64,9 @@
 
   ;; (C-u s-p f) will invalidate the cache prior to prompting a file jump
   ;; (s-p z) will add the current file to the cache, but this usually happens
-  ;;     upon opening a file.
-  (setq projectile-enable-caching t)
-
-  ;; this makes projectile usable in every directory, w or w/o a project file
-  (setq projectile-require-project-root nil)
-
-  ;; include the current project in the list of projects when switching
-  (setq projectile-current-project-on-switch t)
-
-  ;; We don't need to define this since we'll be using counsel-projectile.
-  ;;(setq projectile-switch-project-action 'counsel-find-file)
-
-  ;; We want to show the project name and type on the mode line.
-  (setq projectile-dynamic-mode-line t)
-
-  ;; Show a unicode gear, `⚙' on the mode line instead of the text "Projectile".
-  (setq projectile-mode-line-prefix "⚙")
-
-  :config
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  ;;     upon opening a  (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (define-key projectile-command-map (kbd "C-c p SPC") 'counsel-projectile)
   (projectile-mode)
   (projectile-register-project-type 'julia '("Project.toml")
                                     :project-file "Project.toml"
@@ -100,6 +82,10 @@
   :delight "⚙"
   :defer t
   :after projectile
+  :init
+  (define-key projectile-mode-map (kbd "C-c p SPC") 'counsel-projectile)
+  (define-key projectile-mode-map (kbd "C-c p p") 'counsel-projectile-switch-project)
+;;  (define-key projectile-mode-map (kbd "
   :config
   (counsel-projectile-mode))
 

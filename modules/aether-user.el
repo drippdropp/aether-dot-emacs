@@ -16,9 +16,11 @@
 
 ;;; Code:
 
+(defvar user-emails-directory "/Users/dmarvin/.emacs.d//")
 (defvar user-full-name "Daniel Marvin")
 (defvar user-email-address "daniel@nullmap.org")
 (defvar user-git-user-name "drippdropp")
 (defvar user-git-user-path "https://www.github.com/drippdropp")
+(defvar user-url "https://www.nullmap.org/")
 
 (provide 'user)

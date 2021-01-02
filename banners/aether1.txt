@@ -39,9 +39,15 @@ Next Line, Previous Line:     n, p   || Cycle through TODO Status:C-c C-t
 Refresh:                         g   || Create new Table:           C-c |
 Toggle Display of Hidden Files:  R   || Agenda Mode:                C-c a
 Recursively Open Directory:      O   ||
-Create file or directory:  C-c C-n   ||
-Delete file or directory:  C-c C-d   ||
-Rename file or directory:  C-c c-r   ||
-Change the root directory: C-c C-c   ||
+Create file or directory:  C-c C-n   || TUAREG MODE
+Delete file or directory:  C-c C-d   || =---------=
+Rename file or directory:  C-c c-r   || Evaluate line           s-<return>
+Change the root directory: C-c C-c   || Evaluate buffer         M-<return>
 Copy a file or directory:  C-c C-p   ||
 =------------------------------------||---------------------------------=
+PROJECTILE MODE                      ||
+=-------------=                      ||
+Grep within project      C-c p s g   ||
+Run AG within project    C-c p s s
+Find file in project       C-c p f   ||
+-------------------------------------||---------------------------------=

@@ -90,11 +90,14 @@
 (load-file (expand-file-name "aether-latex.el" aether-modules-dir))
 (load-file (expand-file-name "aether-lisp.el" aether-modules-dir))
 (load-file (expand-file-name "aether-markdown.el" aether-modules-dir))
+(load-file (expand-file-name "aether-nameframe.el" aether-modules-dir))
 (load-file (expand-file-name "aether-neotree.el" aether-modules-dir))
+(load-file (expand-file-name "aether-ocaml.el" aether-modules-dir))
 (load-file (expand-file-name "aether-org.el" aether-modules-dir))
 (load-file (expand-file-name "aether-osx.el" aether-modules-dir))
 (load-file (expand-file-name "aether-projectile.el" aether-modules-dir))
 (load-file (expand-file-name "aether-ruby.el" aether-modules-dir))
+(load-file (expand-file-name "aether-typo.el" aether-modules-dir))
 (load-file (expand-file-name "aether-yasnippet.el" aether-modules-dir))
 
 (load-file (expand-file-name "aether-bindings.el" aether-kernel-dir))
@@ -107,3 +110,4 @@
 
 (put 'dired-find-alternate-file 'disabled nil)
 
+(put 'upcase-region 'disabled nil)

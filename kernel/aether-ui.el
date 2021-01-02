@@ -35,7 +35,7 @@
   (when (member "Fira Mono for Powerline" (font-family-list))
     (set-face-attribute 'default nil
 			:family "Fira Mono for Powerline"
-			:height 120))
+			:height 180))
   (when (member "Noto Color Emoji" (font-family-list))
     (set-fontset-font t 'symbol
         	      (font-spec :family "Noto Color Emoji")
@@ -63,15 +63,14 @@
   (set-face-attribute 'mode-line nil
                     :family "Iosevka Fixed"
                     :foundry "nil"
-                    :width 'normal
-                    :height 130
+                    :width 'condensed
+                    :height 190
                     :weight 'Regular
                     :slant 'normal
                     :box nil
                     :inverse-video nil
-                    :foreground "gray90"
-                    :background "black")
-  )
+                    :foreground "black"
+                    :background "gray10"))
 
 (use-package volatile-highlights
   :ensure t
@@ -93,6 +92,14 @@
 
 (require 'color)
 
+(let ((bg (face-attribute 'default :background)))
+  (custom-set-faces
+   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 40)))))
+   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 80)))))
+   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 100)))))
+   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
+
 ;; additional settings and initalizations
 
 (size-indication-mode t)
@@ -100,11 +107,12 @@
 (show-paren-mode 1)
 
 (global-hl-line-mode +1)
-(lighten-hl-background 10)
+(lighten-hl-background 20)
+(darken-hl-foreground 40)
 (set-face-foreground 'highlight nil)
 (set-face-foreground 'hl-line nil)
 
-(global-visual-line-mode t)
+(global-visual-line-mode +1)
 (diminish 'visual-line-mode)
 
 (setq ns-use-srgb-colorspace t)
@@ -112,13 +120,14 @@
 (setq ns-use-proxy-icon nil)
 
 (setq frame-inhibit-implied-resize t)
-(setq-default left-fringe-width nil
+(setq-default left-fringe-width 30
 	      indicate-empty-lines t
 	      indent-tabs-mode nil)
-(setq-default fill-column 80)
+(setq-default fill-column 120)
 (setq-default cursor-type 'bar)
 (setq frame-title-format nil)
 (setq frame-resize-pixelwise t)
+(setq-default left-fringe-width 50)
 
 (blink-cursor-mode +1)
 (setq-default cursor-type 'box)
@@ -133,6 +142,7 @@
 ;; additional hooks
 
 (dolist (mode '(emacs-lisp-mode-hook
+                tuareg-mode-hook
                 inferior-lisp-mode-hook
                 python-mode-hook
                 inferior-ruby-mode-hook
@@ -145,7 +155,6 @@
 ;;(add-hook 'prog-mode-hook 'aether-set-fw-face-in-buffer)
 (add-hook 'conf-mode-hook 'aether-set-fw-face-in-buffer)
 (add-hook 'text-mode-hook #'turn-on-auto-fill)
-
 
 (provide 'aether-ui)
 ;;; end of ui.el

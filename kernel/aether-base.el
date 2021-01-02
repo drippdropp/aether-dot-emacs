@@ -76,6 +76,18 @@
   (aether-move-region start end (if (null n) 1 n))
   )
 
+;; (defun aether-create-post (filename)
+;;   (interactive "M")
+;;   (let ((post-formatted-time-string (format-time-string "%Y-%m-%d"))
+;;         (post-formatted-file-name (concat (replace-regexp-in-string " " "-" filename) "-"))
+;;         (post-file-name (concat post-formatted-time-string post-formatted-file-name "-")))
+;;     (find-file (mapconcat 'identity `("/Users/dmarvin/env-local/genabstr/posts" ,post-file-name)))))
+
+;;   (setq post-file-name (mapconcat 'identity `(,(format-time-string "%Y-%m-%d") ,(concat (replace-regexp-in-string " " "-" filename) "-")
+;;   (setq post-file-path (mapconcat 'identity `("/Users/dmarvin/env-local/genabstr/posts" ,post-file-name) "/" ))
+;;   (find-file post-file-path)
+;;   ))
+
 ;; When a key sequence is initiated, a menu will display addition
 ;;   possible key sequences.
 (use-package which-key
@@ -95,7 +107,6 @@
 
 (use-package swiper
   :ensure t
-  :defer t
   :bind ("C-s" . swiper))
 
 (use-package exec-path-from-shell
