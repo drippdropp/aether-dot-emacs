@@ -2,8 +2,9 @@
 ;;
 ;; Author     : Daniel Marvin <daniel@nullmap.org>
 ;; Created    : Wed Oct 28, 2020
-;; Version    : 0.1
-;; Keywords   : init
+;; Updated    : Thu Jan 07, 2020
+;; Version    : 1.0
+;; Keywords   : initialization, configuration, ui, user-interface
 
 ;; Copyright (C) 2020 by Daniel Marvin
 ;;
@@ -24,7 +25,7 @@
   :ensure t
   :init
 ;;  (load-theme 'sanityinc-solarized-light t)
-  (load-theme 'boron t)
+  (load-theme 'arc-dark t)
   (prefer-coding-system 'utf-8)
   (setq locale-coding-system 'utf-8)
   (set-language-environment "UTF-8")
@@ -35,7 +36,7 @@
   (when (member "Fira Mono for Powerline" (font-family-list))
     (set-face-attribute 'default nil
 			:family "Fira Mono for Powerline"
-			:height 160))
+			:height 180))
   (when (member "Noto Color Emoji" (font-family-list))
     (set-fontset-font t 'symbol
         	      (font-spec :family "Noto Color Emoji")
@@ -64,13 +65,26 @@
                     :family "Iosevka Fixed"
                     :foundry "nil"
                     :width 'condensed
-                    :height 140
+                    :height 160
                     :weight 'Regular
                     :slant 'normal
-                    :box nil
+                    :box '(:line-width 1 :color "#798ea1")
+                    :overline nil
+                    :underline nil
                     :inverse-video nil
-                    :foreground "black"
-                    :background "gray10")
+                    :foreground "white"
+                    :background "#222222")
+  (set-face-attribute 'mode-line-inactive nil
+                    :family "Iosevka Fixed"
+                    :foundry "nil"
+                    :width 'condensed
+                    :height 160
+                    :weight 'Regular
+                    :slant 'normal
+                    :box '(:line-width 1 :color "#565063")
+                    :inverse-video nil
+                    :foreground "#565063"
+                    :background "black")
   )
 
 (use-package volatile-highlights
@@ -101,17 +115,17 @@
    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
-;; additional settings and initalizations
+;; additional settings and configuration
 
 (size-indication-mode t)
 (tooltip-mode -1)
 (show-paren-mode 1)
 
-(global-hl-line-mode +1)
-(lighten-hl-background 20)
-(darken-hl-foreground 100)
+(global-hl-line-mode 1)
+(lighten-hl-background 10)
+(darken-hl-foreground 20)
 (set-face-foreground 'highlight nil)
-(set-face-foreground 'hl-line nil)
+(set-face-foreground 'hl-line "#cadd1e")
 
 (global-visual-line-mode +1)
 (diminish 'visual-line-mode)
@@ -128,7 +142,7 @@
 (setq-default cursor-type 'bar)
 (setq frame-title-format nil)
 (setq frame-resize-pixelwise t)
-(setq-default left-fringe-width 20)
+(setq-default left-fringe-width 10)
 
 (blink-cursor-mode nil)
 (setq-default cursor-type 'box)
@@ -144,6 +158,7 @@
 
 (dolist (mode '(emacs-lisp-mode-hook
                 tuareg-mode-hook
+                markdown-mode-hook
                 inferior-lisp-mode-hook
                 python-mode-hook
                 inferior-ruby-mode-hook

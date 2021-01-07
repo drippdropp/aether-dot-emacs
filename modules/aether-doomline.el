@@ -69,7 +69,7 @@
   (setq doom-modeline-unicode-fallback nil)
 
   ;; Whether display the minor modes in the mode-line.
-  (setq doom-modeline-minor-modes nil)
+  (setq doom-modeline-minor-modes t)
 
   ;; If non-nil, a word count will be added to the selection-info modeline segment.
   (setq doom-modeline-enable-word-count nil)
@@ -133,7 +133,7 @@
   (setq doom-modeline-gnus-excluded-groups '("dummy.group"))
 
   ;; Whether display the IRC notifications. It requires `circe' or `erc' package.
-  (setq doom-modeline-irc t)
+  (setq doom-modeline-irc nil)
 
   ;; Function to stylize the irc buffer names.
   (setq doom-modeline-irc-stylize 'identity)
@@ -164,7 +164,6 @@
   ;; Hooks that run before/after the modeline version string is updated
   (setq doom-modeline-before-update-env-hook nil)
   (setq doom-modeline-after-update-env-hook nil)
-
 )
 
 (provide 'aether-doomline)
