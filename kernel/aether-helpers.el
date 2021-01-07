@@ -39,6 +39,7 @@
     (next-line 1)
     (yank)))
 
+
 (defun aether-frame-create (&optional title)
   "Create a new frame returning its internal id,
    optionally setting TITLE as title"
@@ -173,6 +174,18 @@
   (call-interactively 'copy-region-as-kill)
   (call-interactively 'exchange-point-and-mark)
   (call-interactively 'exchange-point-and-mark))
+
+;; (defun aether-create-post (filename)
+;;   (interactive "M")
+;;   (let ((post-formatted-time-string (format-time-string "%Y-%m-%d"))
+;;         (post-formatted-file-name (concat (replace-regexp-in-string " " "-" filename) "-"))
+;;         (post-file-name (concat post-formatted-time-string post-formatted-file-name "-")))
+;;     (find-file (mapconcat 'identity `("/Users/dmarvin/env-local/genabstr/posts" ,post-file-name)))))
+
+;;   (setq post-file-name (mapconcat 'identity `(,(format-time-string "%Y-%m-%d") ,(concat (replace-regexp-in-string " " "-" filename) "-")
+;;   (setq post-file-path (mapconcat 'identity `("/Users/dmarvin/env-local/genabstr/posts" ,post-file-name) "/" ))
+;;   (find-file post-file-path)
+;;   ))
 
 (global-set-key (kbd "M-w") 'aether-copy-but-keep-active-mark)
 

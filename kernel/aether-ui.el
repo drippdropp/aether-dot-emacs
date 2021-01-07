@@ -35,7 +35,7 @@
   (when (member "Fira Mono for Powerline" (font-family-list))
     (set-face-attribute 'default nil
 			:family "Fira Mono for Powerline"
-			:height 180))
+			:height 160))
   (when (member "Noto Color Emoji" (font-family-list))
     (set-fontset-font t 'symbol
         	      (font-spec :family "Noto Color Emoji")
@@ -64,13 +64,14 @@
                     :family "Iosevka Fixed"
                     :foundry "nil"
                     :width 'condensed
-                    :height 190
+                    :height 140
                     :weight 'Regular
                     :slant 'normal
                     :box nil
                     :inverse-video nil
                     :foreground "black"
-                    :background "gray10"))
+                    :background "gray10")
+  )
 
 (use-package volatile-highlights
   :ensure t
@@ -94,9 +95,9 @@
 
 (let ((bg (face-attribute 'default :background)))
   (custom-set-faces
-   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 40)))))
-   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 80)))))
-   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 100)))))
+   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 20)))))
+   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 20)))))
+   `(company-scrollbar-fg ((t (:background ,(color-darken-name bg 80)))))
    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
@@ -108,7 +109,7 @@
 
 (global-hl-line-mode +1)
 (lighten-hl-background 20)
-(darken-hl-foreground 40)
+(darken-hl-foreground 100)
 (set-face-foreground 'highlight nil)
 (set-face-foreground 'hl-line nil)
 
@@ -120,16 +121,16 @@
 (setq ns-use-proxy-icon nil)
 
 (setq frame-inhibit-implied-resize t)
-(setq-default left-fringe-width 30
+(setq-default left-fringe-width 20
 	      indicate-empty-lines t
 	      indent-tabs-mode nil)
 (setq-default fill-column 120)
 (setq-default cursor-type 'bar)
 (setq frame-title-format nil)
 (setq frame-resize-pixelwise t)
-(setq-default left-fringe-width 50)
+(setq-default left-fringe-width 20)
 
-(blink-cursor-mode +1)
+(blink-cursor-mode nil)
 (setq-default cursor-type 'box)
 
 (setq visual-line-fringe-indicators

@@ -47,7 +47,7 @@
   :diminish projectile-mode
   :delight "⚙"
   :bind-keymap ("C-c p" . projectile-command-map)
-  :init
+  :config
   (setq projectile-project-search-path '("~/local/" "~/.emacs.d/" "~/env-local/" "~/local-devel/env-development/"))
 
   ;; Use ivy as the completion system. The other common CS is helm, but helm is
