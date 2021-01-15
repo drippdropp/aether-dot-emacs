@@ -29,6 +29,9 @@
 (global-unset-key (kbd "M-w"))
 (global-set-key (kbd "M-w") #'aether-get-selected-text)
 
+;; duplicate the current line or region
+(global-set-key (kbd "C-x C-d") 'aether-duplicate-current-line-or-region)
+
 ;; (kbd "C-w") is `kill-region'
 
 ;; unset default reverse search
@@ -58,9 +61,6 @@
 
 ;; use `counsel-find-file' instead of the default.
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-
-;; duplicate the current line or region
-(global-set-key (kbd "C-x C-d") 'aether-duplicate-current-line-or-region)
 
 ;; `counsel-yank-pop' displays the kill-ring/paste-bin
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
@@ -118,7 +118,7 @@
 ;; A new frame is a new Emacs window (like a "Mac OSX window")
 (global-set-key (kbd "s-n") 'nameframe-create-frame)
 
-
+(global-set-key (kbd "C-c o") #'aether-lines-to-cslist)
 
 ;; CMD+<left> is analogous to "C-a" (go to the beginning of the line.)
 ;; CMD+<right> is analogous to "C-e" (go to the end of the line.)
@@ -133,9 +133,6 @@
 (global-set-key (kbd "M-<right>") 'forward-word)
 
 ;; Select a line or region and move it
-
-(global-set-key (kbd "C-M-<left>") 'aether-move-region-up)
-(global-set-key (kbd "C-M-<right>") 'aether-move-region-down)
 (global-set-key (kbd "C-M-<up>") 'aether-move-region-up)
 (global-set-key (kbd "C-M-<down>") 'aether-move-region-down)
 
@@ -146,11 +143,15 @@
 (global-set-key (kbd "M-<f12>") 'aether-reload-emacs-init)
 
 ;; binding to create an empty buffer (new Mac OSX window)
+(global-set-key (kbd "<f6>") #'aether-emacs-new-empty-markdown-buffer)
 (global-set-key (kbd "<f7>") #'aether-emacs-new-empty-buffer)
+
 ;; <f8> is bound to aspell, to identify possible spelling corrections
 
 (global-set-key (kbd "<f9>") #'neotree-toggle)
 (global-set-key (kbd "<f10>") #'aether-neotree-project-dir)
+
+
 
 ;; Specific bindings for `tuareg'
 (eval-after-load 'tuareg '(define-key tuareg-mode-map (kbd "s-<return>") 'utop-eval-phrase))

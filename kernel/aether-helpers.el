@@ -39,7 +39,6 @@
     (next-line 1)
     (yank)))
 
-
 (defun aether-frame-create (&optional title)
   "Create a new frame returning its internal id,
    optionally setting TITLE as title"
@@ -60,6 +59,14 @@
   (let ((new-buf (generate-new-buffer "untitled")))
     (switch-to-buffer new-buf)
     (funcall initial-major-mode)
+    (setq buffer-offer-save t)))
+
+(defun aether-emacs-new-empty-markdown-buffer ()
+  "Create new empty buffer of initial major mode (Markdown)."
+  (interactive)
+  (let ((new-buf  (generate-new-buffer "untitled")))
+    (switch-to-buffer new-buf)
+    (funcall #'markdown-mode)
     (setq buffer-offer-save t)))
 
 (defun aether-emacs-new-empty-julia-buffer ()
@@ -174,6 +181,16 @@
   (call-interactively 'copy-region-as-kill)
   (call-interactively 'exchange-point-and-mark)
   (call-interactively 'exchange-point-and-mark))
+
+(defun aether-lines-to-cslist (start end &optional arg)
+  (interactive "r\nP")
+  (let ((insertion
+         (mapconcat
+          (lambda (x) (format "%s" x))
+          (split-string (buffer-substring start end)) ", ")))
+    (delete-region start end)
+    (insert insertion)
+    (when arg (forward-char (length insertion)))))
 
 ;; (defun aether-create-post (filename)
 ;;   (interactive "M")

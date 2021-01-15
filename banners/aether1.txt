@@ -44,10 +44,10 @@ Delete file or directory:  C-c C-d   || =---------=
 Rename file or directory:  C-c c-r   || Evaluate line           s-<return>
 Change the root directory: C-c C-c   || Evaluate buffer         M-<return>
 Copy a file or directory:  C-c C-p   ||
+=-----------------------------------------------------------------------=
+PROJECTILE MODE                      
 =------------------------------------||---------------------------------=
-PROJECTILE MODE                      ||
-=-------------=                      ||
-Grep within project      C-c p s g   ||
-Run AG within project    C-c p s s
-Find file in project       C-c p f   ||
+Grep within project      C-c p s g   || Switch Projects           C-c p p
+Run AG within project    C-c p s s   || Project Root DirEdit      C-c p D
+Find file in project       C-c p f   || Projectile Commander      C-c p m
 -------------------------------------||---------------------------------=

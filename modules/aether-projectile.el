@@ -45,7 +45,7 @@
   :ensure t
   :requires (counsel ivy)
   :diminish projectile-mode
-  :delight "⚙"
+  :delight " [⚙] "
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (setq projectile-project-search-path '("~/local/" "~/.emacs.d/" "~/env-local/" "~/local-devel/env-development/"))
@@ -79,7 +79,7 @@
 ;; `counsel-projectile' handles integrating ivy, counsel, and projectile.
 (use-package counsel-projectile
   :ensure t
-  :delight "⚙"
+  :delight " [⚙] "
   :defer t
   :after projectile
   :init
