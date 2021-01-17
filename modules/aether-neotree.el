@@ -16,6 +16,7 @@
   :ensure t
   :config
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (setq neo-window-width 33)
   (setq neo-smart-open t)
   (setq projectile-switch-project-action 'neotree-projectile-action)
   )

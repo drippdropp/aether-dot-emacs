@@ -1,4 +1,4 @@
-;;; aether-bindings.el -- Collection of all key bindings.
+;;; .aether-bindings.el -- Collection of all key bindings.
 ;;;;
 
 ;;; Code:;;
@@ -46,14 +46,16 @@
 (global-unset-key (kbd "<f2> <f2>"))
 (global-unset-key (kbd "<f2> s"))
 (global-unset-key (kbd "<f2> 2"))
+(global-unset-key (kbd "C-b"))
+(global-unset-key (kbd "C-n"))
 
 ;; Associate CMD+f and OPT+RIGHT to step forward by word
 (global-unset-key (kbd "s-b"))
 (global-unset-key (kbd "s-f"))
 (global-unset-key (kbd "M-<right>"))
 (global-unset-key (kbd "M-<left>"))
-
-;; use swiper-isearch globally
+(global-unset-key (kbd "M-k"))
+;; use swiper-search globally
 (global-set-key (kbd "C-s") 'swiper-isearch)
 
 ;; use `counsel' for expression search instead of the default.
@@ -106,8 +108,14 @@
 ;; This removes a previously stored ivy view.
 (global-set-key (kbd "C-c V") 'ivy-pop-view)
 
+;; Ivy Read Buffers
+(global-set-key (kbd "C-b") #'aether-read-ivy-buffers)
+
 ;; I'm not really familiar with this command. Need to do more research.
 (global-set-key (kbd "C-c J") 'counsel-file-jump)
+
+;; Delete File when in Ivy Find File
+(global-set-key (kbd "C-c d") #'aether-ivy-delete-file)
 
 ;; Change to other window with OPT+o
 (global-unset-key (kbd "M-o"))
@@ -118,6 +126,7 @@
 ;; A new frame is a new Emacs window (like a "Mac OSX window")
 (global-set-key (kbd "s-n") 'nameframe-create-frame)
 
+;; Convert lines into comma-separated list
 (global-set-key (kbd "C-c o") #'aether-lines-to-cslist)
 
 ;; CMD+<left> is analogous to "C-a" (go to the beginning of the line.)
@@ -139,6 +148,7 @@
 ;;; Open up the `init.el file`
 ;; OPT+F12 to edit emacs init file.
 (global-set-key (kbd "M-<f11>") 'aether-edit-emacs-init)
+
 ;; OPT+F11 to reload emacs init file.
 (global-set-key (kbd "M-<f12>") 'aether-reload-emacs-init)
 
@@ -157,5 +167,15 @@
 (eval-after-load 'tuareg '(define-key tuareg-mode-map (kbd "s-<return>") 'utop-eval-phrase))
 (eval-after-load 'tuareg '(define-key tuareg-mode-map (kbd "M-<return>") 'utop-eval-buffer))
 
+(define-key ggtags-mode-map (kbd "C-c g s") 'ggtags-find-other-symbol)
+(define-key ggtags-mode-map (kbd "C-c g h") 'ggtags-view-tag-history)
+(define-key ggtags-mode-map (kbd "C-c g r") 'ggtags-find-reference)
+(define-key ggtags-mode-map (kbd "C-c g f") 'ggtags-find-file)
+(define-key ggtags-mode-map (kbd "C-c g c") 'ggtags-create-tags)
+(define-key ggtags-mode-map (kbd "C-c g u") 'ggtags-update-tags)
+
+(define-key ggtags-mode-map (kbd "M-,") 'pop-tag-mark)
+
+
 (provide 'aether-bindings)
-;; aether-bindings.el ends here
+;; aether-bindings.el ends here`

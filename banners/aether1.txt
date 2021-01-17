@@ -31,7 +31,13 @@ Kill Current Buffer:         C-x k   || =--------=
                                      || Launch REPL               C-c C-z
 Switch View:               C-x C-b   || Execute Current Line:     C-c C-l
 Push View:                   C-c v   || Execute Marked Region:    C-c C-r
-Pop View:                    C-c V   || 
+Pop View:                    C-c V   ||
+=------------------------------------||---------------------------------=
+BOOKMARKING                          || When in bookmark mode:
+Set Bookmark               C-x r m   || l - Open bookmark and close other
+Jump to Bookmark           C-x r b   || d - Flag bookmark for deletion
+                                     || u - Unflag bookmark for delete
+List Bookmarks             C-x r l   || x - Delete flagged bookmarks
 =------------------------------------||---------------------------------=
 NEOTREE MODE                  <f9>   || ORG MODE
 =----------=                         || =------=

@@ -104,10 +104,9 @@
 
 ;; load user custom configuration overrides
 (when (file-exists-p custom-file) (load custom-file 'noerror))
-
-(provide 'init)
-;;; end of init.el
-
 (put 'dired-find-alternate-file 'disabled nil)
 
 (put 'upcase-region 'disabled nil)
+
+(provide 'init)
+;;; end of init.el

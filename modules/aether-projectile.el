@@ -41,6 +41,26 @@
 ;;                   (expand-file-name ".projectile
 ;;   )
 
+(use-package counsel-dash
+  :defer t
+  :ensure t
+  :requires (counsel ivy)
+  )
+(use-package counsel-gtags
+  :defer t
+  :ensure t
+  :requires (counsel ivy ggtags)
+  )
+
+(use-package ivy-todo
+  :defer t
+  :requires (ivy)
+  )
+(use-package flyspell-correct-ivy
+  :defer t
+  :ensure t
+  )
+
 (use-package projectile
   :ensure t
   :requires (counsel ivy)
@@ -73,10 +93,10 @@
                                     :compile ""
                                     )
   )
-
 ;;; https://github.com/ericdanan/counsel-projectile
 ;;
 ;; `counsel-projectile' handles integrating ivy, counsel, and projectile.
+
 (use-package counsel-projectile
   :ensure t
   :delight " [⚙] "
