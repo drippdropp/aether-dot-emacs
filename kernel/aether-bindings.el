@@ -27,17 +27,19 @@
 ;; where specific key bindings live in some cases.
 
 (global-unset-key (kbd "M-w"))
-(global-set-key (kbd "M-w") #'aether-get-selected-text)
+(global-set-key (kbd "M-w") 'aether-get-selected-text)
 
-;; duplicate the current line or region
-(global-set-key (kbd "C-x C-d") 'aether-duplicate-current-line-or-region)
+
 
 ;; (kbd "C-w") is `kill-region'
 
 ;; unset default reverse search
 (global-unset-key (kbd "C-r"))
+
 ;; we re-define this to duplicate line/region
 (global-unset-key (kbd "C-x C-d"))
+;; duplicate the current line or region
+(global-set-key (kbd "C-x C-d") 'aether-duplicate-current-line-or-region)
 
 ;; We re-define this with "M-o"
 (global-unset-key (kbd "C-x o"))
@@ -161,20 +163,9 @@
 (global-set-key (kbd "<f9>") #'neotree-toggle)
 (global-set-key (kbd "<f10>") #'aether-neotree-project-dir)
 
-
-
 ;; Specific bindings for `tuareg'
 (eval-after-load 'tuareg '(define-key tuareg-mode-map (kbd "s-<return>") 'utop-eval-phrase))
 (eval-after-load 'tuareg '(define-key tuareg-mode-map (kbd "M-<return>") 'utop-eval-buffer))
-
-(define-key ggtags-mode-map (kbd "C-c g s") 'ggtags-find-other-symbol)
-(define-key ggtags-mode-map (kbd "C-c g h") 'ggtags-view-tag-history)
-(define-key ggtags-mode-map (kbd "C-c g r") 'ggtags-find-reference)
-(define-key ggtags-mode-map (kbd "C-c g f") 'ggtags-find-file)
-(define-key ggtags-mode-map (kbd "C-c g c") 'ggtags-create-tags)
-(define-key ggtags-mode-map (kbd "C-c g u") 'ggtags-update-tags)
-
-(define-key ggtags-mode-map (kbd "M-,") 'pop-tag-mark)
 
 
 (provide 'aether-bindings)

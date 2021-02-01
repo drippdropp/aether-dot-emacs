@@ -46,6 +46,11 @@
   :ensure t
   :requires (counsel ivy)
   )
+(use-package counsel-gtags
+  :defer t
+  :ensure t
+  :requires (counsel ivy ggtags)
+  )
 
 (use-package ivy-todo
   :defer t
@@ -104,6 +109,15 @@
   :config
   (counsel-projectile-mode))
 
-(provide 'aether-projectile)
-;; end of aether-projectile.el
+(use-package nameframe
+  :ensure t
+  )
+
+(use-package nameframe-projectile
+  :defer t
+  :config
+  (nameframe-projectile-mode t))
+
+(provide 'aether-project-tools)
+;; end of aether-project-tools.el
 

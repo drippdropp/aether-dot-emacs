@@ -56,4 +56,11 @@ PROJECTILE MODE
 Grep within project      C-c p s g   || Switch Projects           C-c p p
 Run AG within project    C-c p s s   || Project Root DirEdit      C-c p D
 Find file in project       C-c p f   || Projectile Commander      C-c p m
--------------------------------------||---------------------------------=
+=------------------------------------||---------------------------------=
+MACROS
+=------------------------------------||---------------------------------=
+Start Recording KBD Macro     C-x (  ||
+Stop Recording KBD Macro      C-x )  ||
+Execute Macro                 C-x e  ||
+Insert Counter          C-x C-k C-i  ||
+=------------------------------------||---------------------------------=
