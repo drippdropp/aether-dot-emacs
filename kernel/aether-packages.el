@@ -46,7 +46,6 @@
 
 (setq package-selected-packages '(ag
 				  all-the-icons
-				  all-the-icons-dired
 				  all-the-icons-ivy
 				  all-the-icons-ivy-rich
 				  async
@@ -62,7 +61,6 @@
                                   delight
 				  diminish
 				  dotenv-mode
-
                                   epl
 				  epresent
 				  exec-path-from-shell
@@ -79,7 +77,6 @@
 				  lisp-mode
 				  magit
 				  minibuffer-line
-
                                   doom-modeline
 				  mood-line
 

@@ -19,17 +19,3 @@
 (use-package company-c-headers
   :ensure t
   :defer t)
-
-;; Company completion backend for lsp-mode
-(use-package company-lsp
-  :ensure t
-  :defer t)
-
-;; Emacs client/library for the Language Server Protocol
-(use-package lsp-mode
-  :ensure t
-  :defer t)
-
-(use-package lsp-ui
-  :ensure t
-  :defer t)

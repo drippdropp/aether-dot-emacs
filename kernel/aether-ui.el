@@ -19,13 +19,11 @@
 
 (require 'cl-lib)
 
-;;(use-package sanityinc-solarized-light-theme
 (use-package abyss-theme
   :if window-system
   :ensure t
   :init
-;;  (load-theme 'sanityinc-solarized-light t)
-  (load-theme 'arc-dark t)
+  (load-theme 'abyss t)
   (prefer-coding-system 'utf-8)
   (setq locale-coding-system 'utf-8)
   (set-language-environment "UTF-8")
@@ -33,10 +31,10 @@
   (set-terminal-coding-system 'utf-8)
   (set-keyboard-coding-system 'utf-8)
   (set-selection-coding-system 'utf-8)
-  (when (member "Fira Mono for Powerline" (font-family-list))
+  (when (member "Noto Mono for Powerline" (font-family-list))
     (set-face-attribute 'default nil
-			:family "Fira Mono for Powerline"
-			:height 130))
+			:family "Noto Mono for Powerline"
+			:height 170))
   (when (member "Noto Color Emoji" (font-family-list))
     (set-fontset-font t 'symbol
         	      (font-spec :family "Noto Color Emoji")
@@ -56,16 +54,16 @@
       (set-face-foreground face color)))
   (window-divider-mode 1)
   (dolist (frame (frame-list))
-    (set-frame-parameter frame 'alpha 90))
-  (add-to-list 'default-frame-alist '(alpha . 90))
+    (set-frame-parameter frame 'alpha 98))
+  (add-to-list 'default-frame-alist '(alpha . 100))
   (add-to-list 'default-frame-alist '(height . 50))
   (add-to-list 'default-frame-alist '(width . 140))
   :config
   (set-face-attribute 'mode-line nil
-                    :family "Iosevka Fixed"
+                    :family "Noto Mono for Powerline"
                     :foundry "nil"
                     :width 'condensed
-                    :height 140
+                    :height 170
                     :weight 'Regular
                     :slant 'normal
                     :box '(:line-width 1 :color "#798ea1")
@@ -75,10 +73,10 @@
                     :foreground "#cccccc"
                     :background "#222222")
   (set-face-attribute 'mode-line-inactive nil
-                    :family "Iosevka Fixed"
+                    :family "Noto Mono for Powerline"
                     :foundry "nil"
                     :width 'condensed
-                    :height 140
+                    :height 170
                     :weight 'Regular
                     :slant 'normal
                     :box '(:line-width 1 :color "#565063")

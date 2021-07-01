@@ -29,8 +29,6 @@
 (global-unset-key (kbd "M-w"))
 (global-set-key (kbd "M-w") 'aether-get-selected-text)
 
-
-
 ;; (kbd "C-w") is `kill-region'
 
 ;; unset default reverse search

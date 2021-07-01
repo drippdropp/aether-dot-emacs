@@ -82,9 +82,11 @@
 (load-file (expand-file-name "aether-company.el" aether-modules-dir))
 (load-file (expand-file-name "aether-dired.el" aether-modules-dir))
 (load-file (expand-file-name "aether-doomline.el" aether-modules-dir))
+(load-file (expand-file-name "aether-erl.el" aether-modules-dir))
 (load-file (expand-file-name "aether-git.el" aether-modules-dir))
 (load-file (expand-file-name "aether-haskell.el" aether-modules-dir))
 (load-file (expand-file-name "aether-http.el" aether-modules-dir))
+(load-file (expand-file-name "aether-irony.el" aether-modules-dir))
 (load-file (expand-file-name "aether-ivy.el" aether-modules-dir))
 (load-file (expand-file-name "aether-julia.el" aether-modules-dir))
 (load-file (expand-file-name "aether-latex.el" aether-modules-dir))
@@ -95,7 +97,7 @@
 (load-file (expand-file-name "aether-ocaml.el" aether-modules-dir))
 (load-file (expand-file-name "aether-org.el" aether-modules-dir))
 (load-file (expand-file-name "aether-osx.el" aether-modules-dir))
-(load-file (expand-file-name "aether-projectile.el" aether-modules-dir))
+(load-file (expand-file-name "aether-project-tools.el" aether-modules-dir))
 (load-file (expand-file-name "aether-ruby.el" aether-modules-dir))
 (load-file (expand-file-name "aether-typo.el" aether-modules-dir))
 (load-file (expand-file-name "aether-yasnippet.el" aether-modules-dir))
@@ -110,3 +112,4 @@
 
 (provide 'init)
 ;;; end of init.el
+(put 'downcase-region 'disabled nil)

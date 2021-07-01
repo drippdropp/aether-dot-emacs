@@ -185,6 +185,11 @@
       inhibit-splash-screen t
       inhibit-startup-message t)
 
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired t
+        insert-directory-program "/usr/local/bin/gls"
+        dired-listing-switches "-aBhl --group-directories-first"))
+
 ;; additional hooks
 
 (add-hook 'text-mode-hook #'turn-on-auto-fill)

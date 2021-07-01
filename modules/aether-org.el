@@ -2,11 +2,17 @@
   :defer t
   :config
   (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-;;  (define-key global-map "C-c C-l" 'org-store-link)
-;;  (define-key global-map "\C-ca" 'org-agenda)
+  (define-key global-map (kbd "C-c C-l") 'org-store-link)
   (setq org-list-indent-offset 10)
   (setq org-adapt-indentation nil)
-  (setq org-agenda-files (quote ("/Users/dmarvin/local/orgs/todo.org")))
+  (setq org-agenda-files (list "/Users/dmarvin/local/orgs/todo.org"
+			       "/users/dmarvin/local/orgs/2021-04-work.org"
+			       ))
+;; set maximum indentation for description lists
+  (setq org-list-description-max-indent 5)
+
+;; prevent demoting heading also shifting text inside sections
+  (setq org-adapt-indentation nil)
   (define-key global-map (kbd "C-c a") 'org-agenda)
   (setq org-highest-priority ?A)
   (setq org-lowest-priority ?C)
@@ -19,10 +25,10 @@
   (setq org-capture-templates
         '(("t" "todo" entry (file+headline "/Users/dmarvin/local/orgs/todo.org" "Tasks")
            "* TODO [#A] #?")))
+  (setq org-log-done t)
   (setq org-todo-keyword-faces '(("DONE"      . (:foreground "#afd8af"     :weight bold))
-                                 ("WAITING"   . (:foreground "dark salmon" :weight bold))
-                                 ("CANCELLED" . (:foreground "dim gray"    :weight bold))
-                                 ("BUY"       . (:foreground "goldenrod"   :weight bold))
+                                 ("WAITING"   . (:foreground "#aabbc8" :weight bold))
+                                 ("CANCELLED" . (:foreground "#887788"    :weight bold))
                                  ("HOWTO"     . (:foreground "SkyBlue3"    :weight bold))
                                  ("INFO"      . (:foreground "khaki1"      :weight bold))
                                  ("COLLECT"   . (:foreground "MediumSeaGreen" :weight bold))

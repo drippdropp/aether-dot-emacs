@@ -51,7 +51,6 @@
   :ensure t
   :requires (counsel ivy ggtags)
   )
-
 (use-package ivy-todo
   :defer t
   :requires (ivy)
